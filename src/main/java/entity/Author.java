@@ -2,38 +2,38 @@ package entity;
 
 public class Author {
 
-    private int AuthorID;
-    private String FirstNAme;
-    private String LastNAme;
+    private int authorId;
+    private String firstName;
+    private String lastName;
 
-    public Author(int authorID, String firstNAme, String lastNAme) {
-        AuthorID = authorID;
-        FirstNAme = firstNAme;
-        LastNAme = lastNAme;
+    public Author(int authorId, String firstName, String lastName) {
+        this.authorId = authorId;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
-    public int getAuthorID() {
-        return AuthorID;
+    public int getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthorID(int authorID) {
-        AuthorID = authorID;
+    public void setAuthorId(int authorId) {
+        this.authorId = authorId;
     }
 
-    public String getFirstNAme() {
-        return FirstNAme;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstNAme(String firstNAme) {
-        FirstNAme = firstNAme;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastNAme() {
-        return LastNAme;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastNAme(String lastNAme) {
-        LastNAme = lastNAme;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @Override
@@ -43,25 +43,25 @@ public class Author {
 
         Author author = (Author) o;
 
-        if (AuthorID != author.AuthorID) return false;
-        if (FirstNAme != null ? !FirstNAme.equals(author.FirstNAme) : author.FirstNAme != null) return false;
-        return LastNAme != null ? LastNAme.equals(author.LastNAme) : author.LastNAme == null;
+        if (authorId != author.authorId) return false;
+        if (firstName != null ? !firstName.equals(author.firstName) : author.firstName != null) return false;
+        return lastName != null ? lastName.equals(author.lastName) : author.lastName == null;
     }
 
     @Override
     public int hashCode() {
-        int result = AuthorID;
-        result = 31 * result + (FirstNAme != null ? FirstNAme.hashCode() : 0);
-        result = 31 * result + (LastNAme != null ? LastNAme.hashCode() : 0);
+        int result = authorId;
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "Author{" +
-                "AuthorID=" + AuthorID +
-                ", FirstNAme='" + FirstNAme + '\'' +
-                ", LastNAme='" + LastNAme + '\'' +
+                "authorId=" + authorId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
     }
 }
