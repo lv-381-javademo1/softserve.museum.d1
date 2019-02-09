@@ -7,7 +7,7 @@ import java.util.Optional;
 public class AuthorDao implements Dao{
 
     @Override
-    public boolean addHall(Object o) throws SQLException {
+    public boolean add(Object o) throws SQLException {
         return false;
     }
 
@@ -17,12 +17,12 @@ public class AuthorDao implements Dao{
     }
 
     @Override
-    public boolean deleteBook(Object o) throws SQLException {
+    public boolean delete(Object o) throws SQLException {
         return false;
     }
 
     @Override
-    public boolean updateBook(Object o) throws SQLException {
+    public boolean update(Object o) throws SQLException {
         return false;
     }
 
