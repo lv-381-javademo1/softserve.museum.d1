@@ -53,8 +53,14 @@ public class HallDao implements Dao<Hall> {
     }
 
     @Override
-    public boolean update(Hall hallDao) throws SQLException {
-        return false;
+    public boolean update(Hall hall) throws SQLException {
+        String sql ="UPDATE hall set Name = ? WHERE Hall_ID = ?";
+        PreparedStatement preparedStatementstatement = connect().prepareStatement(sql);
+        preparedStatementstatement.setString(1,hall.getHallName());
+        preparedStatementstatement.setInt(2, hall.getId());
+        boolean rowUpdated = preparedStatementstatement.executeUpdate()>0;
+        preparedStatementstatement.close();
+        return rowUpdated;
     }
 
     @Override
