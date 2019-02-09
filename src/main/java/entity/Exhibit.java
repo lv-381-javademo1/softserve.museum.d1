@@ -20,6 +20,9 @@ public class Exhibit {
         this.technique = technique;
     }
 
+    public Exhibit() {
+    }
+
     public int getExhibitId() {
         return exhibitId;
     }

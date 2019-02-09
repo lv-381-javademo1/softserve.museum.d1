@@ -18,6 +18,9 @@ public class Excursion {
         this.duration = duration;
     }
 
+    public Excursion() {
+    }
+
     public int getExcursionId() {
         return excursionId;
     }

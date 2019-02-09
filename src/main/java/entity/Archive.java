@@ -18,6 +18,9 @@ public class Archive {
         this.endTime = endTime;
     }
 
+    public Archive() {
+    }
+
     public int getArchiveId() {
         return archiveId;
     }
