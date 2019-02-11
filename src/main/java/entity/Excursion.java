@@ -1,16 +1,16 @@
 package entity;
 
-import java.sql.Timestamp;
+import java.sql.Time;
 
 public class Excursion {
 
     private int excursionId;
     private String name;
-    private float price;
-    private Timestamp startTime;
-    private Timestamp duration;
+    private int price;
+    private Time startTime;
+    private Time duration;
 
-    public Excursion(int excursionId, String name, float price, Timestamp startTime, Timestamp duration) {
+    public Excursion(int excursionId, String name, int price, Time startTime, Time duration) {
         this.excursionId = excursionId;
         this.name = name;
         this.price = price;
@@ -37,27 +37,27 @@ public class Excursion {
         this.name = name;
     }
 
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public Timestamp getStartTime() {
+    public Time getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Timestamp startTime) {
+    public void setStartTime(Time startTime) {
         this.startTime = startTime;
     }
 
-    public Timestamp getDuration() {
+    public Time getDuration() {
         return duration;
     }
 
-    public void setDuration(Timestamp duration) {
+    public void setDuration(Time duration) {
         this.duration = duration;
     }
 
@@ -69,7 +69,7 @@ public class Excursion {
         Excursion excursion = (Excursion) o;
 
         if (excursionId != excursion.excursionId) return false;
-        if (Float.compare(excursion.price, price) != 0) return false;
+        if (price != excursion.price) return false;
         if (name != null ? !name.equals(excursion.name) : excursion.name != null) return false;
         if (startTime != null ? !startTime.equals(excursion.startTime) : excursion.startTime != null) return false;
         return duration != null ? duration.equals(excursion.duration) : excursion.duration == null;
@@ -79,7 +79,7 @@ public class Excursion {
     public int hashCode() {
         int result = excursionId;
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (price != +0.0f ? Float.floatToIntBits(price) : 0);
+        result = 31 * result + price;
         result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
         result = 31 * result + (duration != null ? duration.hashCode() : 0);
         return result;
@@ -91,10 +91,8 @@ public class Excursion {
                 "excursionId=" + excursionId +
                 ", name='" + name + '\'' +
                 ", price=" + price +
-                ", startTime='" + startTime + '\'' +
-                ", duration='" + duration + '\'' +
+                ", startTime=" + startTime +
+                ", duration=" + duration +
                 '}';
     }
-
-
 }
