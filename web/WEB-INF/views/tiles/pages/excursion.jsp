@@ -7,9 +7,9 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Firstname</th>
+            <th>Name</th>
             <th>Price</th>
-            <th>Email</th>
+            <th>StartTime</th>
             <th>Duration</th>
         </tr>
         </thead>
