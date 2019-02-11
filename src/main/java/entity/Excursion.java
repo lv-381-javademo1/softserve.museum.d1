@@ -1,16 +1,14 @@
 package entity;
 
-import java.sql.Time;
-
 public class Excursion {
 
     private int excursionId;
     private String name;
     private int price;
-    private Time startTime;
-    private Time duration;
+    private String startTime;
+    private String duration;
 
-    public Excursion(int excursionId, String name, int price, Time startTime, Time duration) {
+    public Excursion(int excursionId, String name, int price, String startTime, String duration) {
         this.excursionId = excursionId;
         this.name = name;
         this.price = price;
@@ -45,19 +43,19 @@ public class Excursion {
         this.price = price;
     }
 
-    public Time getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Time startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public Time getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Time duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 
@@ -91,8 +89,8 @@ public class Excursion {
                 "excursionId=" + excursionId +
                 ", name='" + name + '\'' +
                 ", price=" + price +
-                ", startTime=" + startTime +
-                ", duration=" + duration +
+                ", startTime='" + startTime + '\'' +
+                ", duration='" + duration + '\'' +
                 '}';
     }
 }
