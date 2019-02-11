@@ -44,6 +44,7 @@ public class ExcursionDao implements Dao<Excursion>{
             Excursion excursion = new Excursion();
             excursion.setExcursionId(id);
             excursion.setName(name);
+            excursion.setPrice(prise);
             excursion.setStartTime(startTime);
             excursion.setDuration(duration);
 
