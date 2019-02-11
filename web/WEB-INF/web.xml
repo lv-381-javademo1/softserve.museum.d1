@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+    <display-name>Museum</display-name>
+    <listener>
+        <listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
+    </listener>
+
+    <servlet>
+        <display-name>ExcursionController</display-name>
+        <servlet-name>ExcursionController</servlet-name>
+        <servlet-class>controller.ExcursionController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExcursionController</servlet-name>
+        <url-pattern>/excursion</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>ExhibitController</display-name>
+        <servlet-name>ExhibitController</servlet-name>
+        <servlet-class>controller.ExhibitController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExhibitController</servlet-name>
+        <url-pattern>/exhibit</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
