@@ -1,6 +1,7 @@
 package dao;
 
 import entity.Excursion;
+import util.CreateEntityFromDao;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.List;
 
 import static util.DbConnectionUtil.connect;
 
-public class ExcursionDao implements Dao<Excursion>{
+public class ExcursionDao implements Dao<Excursion>, CreateEntityFromDao<Excursion> {
 
     @Override
     public boolean add(Excursion excursion) throws SQLException {
@@ -34,21 +35,8 @@ public class ExcursionDao implements Dao<Excursion>{
         Statement statement = connect().createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
         while (resultSet.next()) {
-
-            int id = resultSet.getInt("ExcursionID");
-            String name = resultSet.getString("Name");
-            int prise = resultSet.getInt("Prise");
-            String startTime = resultSet.getString("StartTime");
-            String duration = resultSet.getString("Duration");
-
             Excursion excursion = new Excursion();
-            excursion.setExcursionId(id);
-            excursion.setName(name);
-            excursion.setPrice(prise);
-            excursion.setStartTime(startTime);
-            excursion.setDuration(duration);
-
-            excursionList.add(excursion);
+            excursionList.add(create(excursion, resultSet));
         }
 
         resultSet.close();
@@ -61,7 +49,7 @@ public class ExcursionDao implements Dao<Excursion>{
         String sql = "DELETE FROM excursion WHERE ExcursionID = ?";
 
         PreparedStatement preparedStatement = connect().prepareStatement(sql);
-        preparedStatement.setInt(1,excursion.getExcursionId());
+        preparedStatement.setInt(1, excursion.getExcursionId());
         boolean rowDeleted = preparedStatement.executeUpdate() > 0;
         preparedStatement.close();
         return rowDeleted;
@@ -76,7 +64,7 @@ public class ExcursionDao implements Dao<Excursion>{
         preparedStatement.setInt(2, excursion.getPrice());
         preparedStatement.setString(3, excursion.getStartTime());
         preparedStatement.setString(4, excursion.getDuration());
-        preparedStatement.setInt(5,excursion.getExcursionId());
+        preparedStatement.setInt(5, excursion.getExcursionId());
         boolean rowsUpdated = preparedStatement.executeUpdate() > 0;
         preparedStatement.close();
         return rowsUpdated;
@@ -90,22 +78,27 @@ public class ExcursionDao implements Dao<Excursion>{
         PreparedStatement preparedStatement = connect().prepareStatement(sql);
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
-        if (resultSet.next()){
-
-            int eId = resultSet.getInt("ExcursionID");
-            String name = resultSet.getString("Name");
-            int prise = resultSet.getInt("Prise");
-            String startTime = resultSet.getString("StartTime");
-            String duration = resultSet.getString("Duration");
-
-            excursion.setExcursionId(eId);
-            excursion.setName(name);
-            excursion.setPrice(prise);
-            excursion.setStartTime(startTime);
-            excursion.setDuration(duration);
+        if (resultSet.next()) {
+            create(excursion, resultSet);
         }
         preparedStatement.close();
         resultSet.close();
+        return excursion;
+    }
+
+    @Override
+    public Excursion create(Excursion excursion, ResultSet resultSet) throws SQLException {
+        int eId = resultSet.getInt("ExcursionID");
+        String name = resultSet.getString("Name");
+        int prise = resultSet.getInt("Prise");
+        String startTime = resultSet.getString("StartTime");
+        String duration = resultSet.getString("Duration");
+
+        excursion.setExcursionId(eId);
+        excursion.setName(name);
+        excursion.setPrice(prise);
+        excursion.setStartTime(startTime);
+        excursion.setDuration(duration);
         return excursion;
     }
 }
