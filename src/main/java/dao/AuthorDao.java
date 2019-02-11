@@ -1,34 +1,103 @@
 package dao;
 
+import entity.Author;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-public class AuthorDao implements Dao{
+import static util.DbConnectionUtil.connect;
+
+public class AuthorDao implements Dao<Author> {
 
     @Override
-    public boolean add(Object o) throws SQLException {
-        return false;
+    public boolean add(Author author) throws SQLException {
+
+        String sql = "INSERT INTO author(FirstName, LastName) VALUES (?, ?)";
+        PreparedStatement preparedStatement = connect().prepareStatement(sql);
+        preparedStatement.setString(1, author.getFirstName());
+        preparedStatement.setString(2, author.getLastName());
+        boolean rowsInserted = preparedStatement.executeUpdate() > 0;
+        preparedStatement.close();
+        return rowsInserted;
     }
 
     @Override
-    public List findAll() throws SQLException {
-        return null;
+    public List<Author> findAll() throws SQLException {
+
+        List<Author> authorList = new ArrayList<>();
+        String sql = "SELECT * FROM author";
+        Statement statement = connect().createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        while (resultSet.next()) {
+
+            int id = resultSet.getInt("AuthorID");
+            String firstName = resultSet.getString("FirstName");
+            String lastName = resultSet.getString("LastName");
+
+            Author author = new Author();
+            author.setAuthorId(id);
+            author.setFirstName(firstName);
+            author.setLastName(lastName);
+            authorList.add(author);
+        }
+
+        resultSet.close();
+        statement.close();
+        return authorList;
     }
 
     @Override
-    public boolean delete(Object o) throws SQLException {
-        return false;
+    public boolean delete(Author author) throws SQLException {
+
+        String sql = "DELETE FROM author WHERE AuthorID = ?";
+
+        PreparedStatement preparedStatement = connect().prepareStatement(sql);
+        preparedStatement.setInt(1,author.getAuthorId());
+        boolean rowDeleted = preparedStatement.executeUpdate() > 0;
+        preparedStatement.close();
+        return rowDeleted;
     }
 
     @Override
-    public boolean update(Object o) throws SQLException {
-        return false;
+    public boolean update(Author author) throws SQLException {
+
+        String sql = "UPDATE author SET FirstName = ?, LastName = ? WHERE AuthorID = ?";
+
+        PreparedStatement preparedStatement = connect().prepareStatement(sql);
+        preparedStatement.setString(1, author.getFirstName());
+        preparedStatement.setString(2, author.getLastName());
+        preparedStatement.setInt(3, author.getAuthorId());
+        boolean rowsUpdated = preparedStatement.executeUpdate() > 0;
+        preparedStatement.close();
+        return rowsUpdated;
     }
 
     @Override
-    public Object findOne(int id) throws SQLException {
-        return null;
+    public Author findOne(int id) throws SQLException {
+
+        Author author = new Author();
+        String sql = "SELECT * FROM author WHERE AuthorID = ?";
+
+        PreparedStatement preparedStatement = connect().prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()){
+
+            int aId = resultSet.getInt("AuthorID");
+            String firstName = resultSet.getString("FirstName");
+            String lastName = resultSet.getString("LastName");
+
+            author.setAuthorId(aId);
+            author.setFirstName(firstName);
+            author.setLastName(lastName);
+        }
+        preparedStatement.close();
+        resultSet.close();
+        return author;
     }
 }
 
