@@ -18,8 +18,8 @@ public class ExcursionDao implements Dao<Excursion>{
 
         preparedStatement.setString(1, excursion.getName());
         preparedStatement.setInt(2, excursion.getPrice());
-        preparedStatement.setTime(3, excursion.getStartTime());
-        preparedStatement.setTime(4, excursion.getDuration());
+        preparedStatement.setString(3, excursion.getStartTime());
+        preparedStatement.setString(4, excursion.getDuration());
         boolean rowsInserted = preparedStatement.executeUpdate() > 0;
         preparedStatement.close();
         return rowsInserted;
@@ -38,8 +38,8 @@ public class ExcursionDao implements Dao<Excursion>{
             int id = resultSet.getInt("ExcursionID");
             String name = resultSet.getString("Name");
             int prise = resultSet.getInt("Prise");
-            Time startTime = resultSet.getTime("StartTime");
-            Time duration = resultSet.getTime("Duration");
+            String startTime = resultSet.getString("StartTime");
+            String duration = resultSet.getString("Duration");
 
             Excursion excursion = new Excursion();
             excursion.setExcursionId(id);
@@ -74,8 +74,8 @@ public class ExcursionDao implements Dao<Excursion>{
         PreparedStatement preparedStatement = connect().prepareStatement(sql);
         preparedStatement.setString(1, excursion.getName());
         preparedStatement.setInt(2, excursion.getPrice());
-        preparedStatement.setTime(3, excursion.getStartTime());
-        preparedStatement.setTime(4, excursion.getDuration());
+        preparedStatement.setString(3, excursion.getStartTime());
+        preparedStatement.setString(4, excursion.getDuration());
         preparedStatement.setInt(5,excursion.getExcursionId());
         boolean rowsUpdated = preparedStatement.executeUpdate() > 0;
         preparedStatement.close();
@@ -95,8 +95,8 @@ public class ExcursionDao implements Dao<Excursion>{
             int eId = resultSet.getInt("ExcursionID");
             String name = resultSet.getString("Name");
             int prise = resultSet.getInt("Prise");
-            Time startTime = resultSet.getTime("StartTime");
-            Time duration = resultSet.getTime("Duration");
+            String startTime = resultSet.getString("StartTime");
+            String duration = resultSet.getString("Duration");
 
             excursion.setExcursionId(eId);
             excursion.setName(name);
