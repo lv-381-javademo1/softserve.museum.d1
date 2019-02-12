@@ -75,7 +75,7 @@ public class EmployeeDao implements Dao<Employee>, CreateEntityFromDao<Employee>
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
-            create(resultSet);
+          employee =  create(resultSet);
         }
         resultSet.close();
         statement.close();
@@ -84,7 +84,7 @@ public class EmployeeDao implements Dao<Employee>, CreateEntityFromDao<Employee>
 
     @Override
     public Employee create(ResultSet resultSet) throws SQLException {
-        employee = new Employee();
+        Employee employee = new Employee();
         String firstName = resultSet.getString("FirstName");
         String lastName = resultSet.getString("LastName");
         String position = resultSet.getString("Position");

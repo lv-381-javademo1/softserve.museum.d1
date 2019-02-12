@@ -18,7 +18,15 @@ public class ArchiveDao implements Dao<Archive>, CreateEntityFromDao<Archive> {
 
     @Override
     public boolean add(Archive archive) throws SQLException {
-        return false;
+        String sql = "INSERT INTO archive(EmployeeID, ExcursionID, StartTime, EndTime) VALUES (?, ?, ?, ?)";
+        PreparedStatement preparedStatement = connect().prepareStatement(sql);
+        preparedStatement.setInt(1,archive.getEmployee().getEmployeeId());
+        preparedStatement.setInt(2,archive.getExcursion().getExcursionId());
+        preparedStatement.setString(3, String.valueOf(archive.getStartTime()));
+        preparedStatement.setString(4,String.valueOf(archive.getEndTime()));
+        boolean rowInserted = preparedStatement.executeUpdate() > 0;
+        preparedStatement.close();
+        return rowInserted;
     }
 
     @Override
@@ -40,7 +48,12 @@ public class ArchiveDao implements Dao<Archive>, CreateEntityFromDao<Archive> {
 
     @Override
     public boolean delete(Archive archive) throws SQLException {
-        return false;
+        String sql = "DELETE FROM archive where ArchiveID =?";
+        PreparedStatement statement = connect().prepareStatement(sql);
+        statement.setInt(1, archive.getArchiveId());
+        boolean rowDeleted = statement.executeUpdate() > 0;
+        statement.close();
+        return rowDeleted;
     }
 
     @Override
@@ -50,14 +63,13 @@ public class ArchiveDao implements Dao<Archive>, CreateEntityFromDao<Archive> {
 
     @Override
     public Archive findOne(int id) throws SQLException {
-        Excursion excursion = new Excursion();
         String sql = "SELECT * FROM archive WHERE ArchiveID = ?";
 
         PreparedStatement preparedStatement = connect().prepareStatement(sql);
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
-            create(resultSet);
+          archive = create(resultSet);
         }
         preparedStatement.close();
         resultSet.close();
@@ -66,15 +78,15 @@ public class ArchiveDao implements Dao<Archive>, CreateEntityFromDao<Archive> {
 
     @Override
     public Archive create(ResultSet resultSet) throws SQLException {
-        archive = new Archive();
+        Archive archive = new Archive();
         int id = resultSet.getInt("ArchiveID");
         Timestamp StartTime = Timestamp.valueOf(resultSet.getString("StartTime"));
         Timestamp EndTime = Timestamp.valueOf(resultSet.getString("EndTime"));
         archive.setArchiveId(id);
         archive.setStartTime(StartTime);
         archive.setEndTime(EndTime);
-        archive.setEmployeeId(employeeDao.create(resultSet));
-        archive.setExcursionId(excursionDao.create(resultSet));
+        archive.setEmployee(employeeDao.create(resultSet));
+        archive.setExcursion(excursionDao.create(resultSet));
         return archive;
     }
 }

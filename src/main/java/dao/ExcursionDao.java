@@ -73,14 +73,13 @@ public class ExcursionDao implements Dao<Excursion>, CreateEntityFromDao<Excursi
 
     @Override
     public Excursion findOne(int id) throws SQLException {
-        Excursion excursion = new Excursion();
         String sql = "SELECT * FROM excursion WHERE ExcursionID = ?";
 
         PreparedStatement preparedStatement = connect().prepareStatement(sql);
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
-            create(resultSet);
+            excursion = create(resultSet);
         }
         preparedStatement.close();
         resultSet.close();
@@ -89,7 +88,7 @@ public class ExcursionDao implements Dao<Excursion>, CreateEntityFromDao<Excursi
 
     @Override
     public Excursion create(ResultSet resultSet) throws SQLException {
-        excursion = new Excursion();
+        Excursion excursion = new Excursion();
         int eId = resultSet.getInt("ExcursionID");
         String name = resultSet.getString("Name");
         int prise = resultSet.getInt("Prise");
