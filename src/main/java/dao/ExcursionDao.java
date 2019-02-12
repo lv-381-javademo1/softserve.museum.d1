@@ -57,7 +57,8 @@ public class ExcursionDao implements Dao<Excursion>, CreateEntityFromDao<Excursi
 
     @Override
     public boolean update(Excursion excursion) throws SQLException {
-        String sql = "UPDATE excursion SET Name = ?, Prise = ?, StartTime = ?, Duration = ? WHERE ExcursionID = ?";
+        String sql = "UPDATE excursion SET Name = ?, Prise = ?, StartTime = ?, Duration = ? "
+                + "WHERE ExcursionID = ?";
 
         PreparedStatement preparedStatement = connect().prepareStatement(sql);
         preparedStatement.setString(1, excursion.getName());
