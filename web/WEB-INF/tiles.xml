@@ -20,16 +20,23 @@
         <put-attribute name="body" value="/WEB-INF/views/tiles/pages/home.jsp"/>
     </definition>
 
-    <!-- Product Page -->
+    <!-- Exhibit Page -->
     <definition name="exhibit" extends="base-definition">
-        <put-attribute name="title" value="Products"/>
+        <put-attribute name="title" value="Exhibits"/>
         <put-attribute name="body" value="/WEB-INF/views/tiles/pages/exhibit.jsp"/>
     </definition>
 
-    <!-- Contact-us Page -->
+    <!-- Excursion -->
     <definition name="excursion" extends="base-definition">
-        <put-attribute name="title" value="Contact Us"/>
+        <put-attribute name="title" value="Excursion"/>
         <put-attribute name="body" value="/WEB-INF/views/tiles/pages/excursion.jsp"/>
     </definition>
+
+    <!-- Archive -->
+    <definition name="archive" extends="base-definition">
+        <put-attribute name="title" value="Archive"/>
+        <put-attribute name="body" value="/WEB-INF/views/tiles/pages/archive.jsp"/>
+    </definition>
+
 
 </tiles-definitions>
