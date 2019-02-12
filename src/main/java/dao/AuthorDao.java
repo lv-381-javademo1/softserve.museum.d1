@@ -1,6 +1,7 @@
 package dao;
 
 import entity.Author;
+import util.CreateEntityFromDao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +12,8 @@ import java.util.List;
 
 import static util.DbConnectionUtil.connect;
 
-public class AuthorDao implements Dao<Author> {
+public class AuthorDao implements Dao<Author>, CreateEntityFromDao<Author> {
+    Author author;
 
     @Override
     public boolean add(Author author) throws SQLException {
@@ -78,25 +80,29 @@ public class AuthorDao implements Dao<Author> {
 
     @Override
     public Author findOne(int id) throws SQLException {
-
-        Author author = new Author();
         String sql = "SELECT * FROM author WHERE AuthorID = ?";
 
         PreparedStatement preparedStatement = connect().prepareStatement(sql);
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()){
-
-            int aId = resultSet.getInt("AuthorID");
-            String firstName = resultSet.getString("FirstName");
-            String lastName = resultSet.getString("LastName");
-
-            author.setAuthorId(aId);
-            author.setFirstName(firstName);
-            author.setLastName(lastName);
+            create(resultSet);
         }
         preparedStatement.close();
         resultSet.close();
+        return author;
+    }
+
+    @Override
+    public Author create(ResultSet resultSet) throws SQLException {
+
+        int aId = resultSet.getInt("AuthorID");
+        String firstName = resultSet.getString("FirstName");
+        String lastName = resultSet.getString("LastName");
+
+        author.setAuthorId(aId);
+        author.setFirstName(firstName);
+        author.setLastName(lastName);
         return author;
     }
 }
