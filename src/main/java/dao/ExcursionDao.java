@@ -10,6 +10,7 @@ import java.util.List;
 import static util.DbConnectionUtil.connect;
 
 public class ExcursionDao implements Dao<Excursion>, CreateEntityFromDao<Excursion> {
+    Excursion excursion;
 
     @Override
     public boolean add(Excursion excursion) throws SQLException {
@@ -35,8 +36,7 @@ public class ExcursionDao implements Dao<Excursion>, CreateEntityFromDao<Excursi
         Statement statement = connect().createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
         while (resultSet.next()) {
-            Excursion excursion = new Excursion();
-            excursionList.add(create(excursion, resultSet));
+            excursionList.add(create(resultSet));
         }
 
         resultSet.close();
@@ -65,6 +65,7 @@ public class ExcursionDao implements Dao<Excursion>, CreateEntityFromDao<Excursi
         preparedStatement.setString(3, excursion.getStartTime());
         preparedStatement.setString(4, excursion.getDuration());
         preparedStatement.setInt(5, excursion.getExcursionId());
+
         boolean rowsUpdated = preparedStatement.executeUpdate() > 0;
         preparedStatement.close();
         return rowsUpdated;
@@ -79,7 +80,7 @@ public class ExcursionDao implements Dao<Excursion>, CreateEntityFromDao<Excursi
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
-            create(excursion, resultSet);
+            create(resultSet);
         }
         preparedStatement.close();
         resultSet.close();
@@ -87,7 +88,8 @@ public class ExcursionDao implements Dao<Excursion>, CreateEntityFromDao<Excursi
     }
 
     @Override
-    public Excursion create(Excursion excursion, ResultSet resultSet) throws SQLException {
+    public Excursion create(ResultSet resultSet) throws SQLException {
+        excursion = new Excursion();
         int eId = resultSet.getInt("ExcursionID");
         String name = resultSet.getString("Name");
         int prise = resultSet.getInt("Prise");

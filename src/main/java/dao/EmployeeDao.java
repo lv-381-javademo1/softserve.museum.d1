@@ -1,6 +1,7 @@
 package dao;
 
 import entity.Employee;
+import util.CreateEntityFromDao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +12,8 @@ import java.util.List;
 
 import static util.DbConnectionUtil.connect;
 
-public class EmployeeDao implements Dao<Employee> {
+public class EmployeeDao implements Dao<Employee>, CreateEntityFromDao<Employee> {
+    Employee employee;
 
     @Override
     public boolean add(Employee employee) throws SQLException {
@@ -32,17 +34,8 @@ public class EmployeeDao implements Dao<Employee> {
         Statement statement = connect().createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
         while (resultSet.next()) {
-            int id = resultSet.getInt("EmployeeId");
-            String FirstName = resultSet.getString("FirstName");
-            String LastName = resultSet.getString("LastName");
-            String position = resultSet.getString("Position");
 
-            Employee employee = new Employee();
-            employee.setEmployeeId(id);
-            employee.setFirstName(FirstName);
-            employee.setLastName(LastName);
-            employee.setPosition(position);
-            employeeList.add(employee);
+            employeeList.add(create(resultSet));
         }
         resultSet.close();
         statement.close();
@@ -75,24 +68,31 @@ public class EmployeeDao implements Dao<Employee> {
 
     @Override
     public Employee findOne(int id) throws SQLException {
-        Employee employee = new Employee();
+
         String sql = "SELECT * FROM employee WHERE EmployeeID = ?";
 
         PreparedStatement statement = connect().prepareStatement(sql);
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
-            String firstName = resultSet.getString("FirstName");
-            String lastName = resultSet.getString("LastName");
-            String position = resultSet.getString("Position");
-            int employeeID = resultSet.getInt("EmployeeID");
-            employee.setFirstName(firstName);
-            employee.setLastName(lastName);
-            employee.setPosition(position);
-            employee.setEmployeeId(employeeID);
+            create(resultSet);
         }
         resultSet.close();
         statement.close();
+        return employee;
+    }
+
+    @Override
+    public Employee create(ResultSet resultSet) throws SQLException {
+        employee = new Employee();
+        String firstName = resultSet.getString("FirstName");
+        String lastName = resultSet.getString("LastName");
+        String position = resultSet.getString("Position");
+        int employeeID = resultSet.getInt("EmployeeID");
+        employee.setFirstName(firstName);
+        employee.setLastName(lastName);
+        employee.setPosition(position);
+        employee.setEmployeeId(employeeID);
         return employee;
     }
 }
