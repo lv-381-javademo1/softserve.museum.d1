@@ -24,6 +24,7 @@ public class ExcursionController extends HttpServlet {
         try {
             excursions = excursionDao.findAll();
             request.setAttribute("excursions", excursions);
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/views/pages/excursion.jsp");
             dispatcher.forward(request, response);
         } catch (SQLException e) {
