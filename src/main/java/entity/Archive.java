@@ -1,19 +1,20 @@
 package entity;
 
 import java.sql.Timestamp;
+import java.util.Objects;
 
 public class Archive {
 
     private int archiveId;
-    private Employee employeeId;
-    private Excursion excursionId;
+    private Employee employee;
+    private Excursion excursion;
     private Timestamp startTime;
     private Timestamp endTime;
 
-    public Archive(int archiveId, Employee employeeId, Excursion excursionId, Timestamp startTime, Timestamp endTime) {
+    public Archive(int archiveId, Employee employee, Excursion excursion, Timestamp startTime, Timestamp endTime) {
         this.archiveId = archiveId;
-        this.employeeId = employeeId;
-        this.excursionId = excursionId;
+        this.employee = employee;
+        this.excursion = excursion;
         this.startTime = startTime;
         this.endTime = endTime;
     }
@@ -29,20 +30,20 @@ public class Archive {
         this.archiveId = archiveId;
     }
 
-    public Employee getEmployeeId() {
-        return employeeId;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setEmployeeId(Employee employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
-    public Excursion getExcursionId() {
-        return excursionId;
+    public Excursion getExcursion() {
+        return excursion;
     }
 
-    public void setExcursionId(Excursion excursionId) {
-        this.excursionId = excursionId;
+    public void setExcursion(Excursion excursion) {
+        this.excursion = excursion;
     }
 
     public Timestamp getStartTime() {
@@ -63,23 +64,23 @@ public class Archive {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Archive archive = (Archive) o;
-
-        if (archiveId != archive.archiveId) return false;
-        if (employeeId != null ? !employeeId.equals(archive.employeeId) : archive.employeeId != null) return false;
-        if (excursionId != null ? !excursionId.equals(archive.excursionId) : archive.excursionId != null) return false;
-        if (startTime != null ? !startTime.equals(archive.startTime) : archive.startTime != null) return false;
-        return endTime != null ? endTime.equals(archive.endTime) : archive.endTime == null;
+        return archiveId == archive.archiveId &&
+                Objects.equals(employee, archive.employee) &&
+                Objects.equals(excursion, archive.excursion) &&
+                Objects.equals(startTime, archive.startTime) &&
+                Objects.equals(endTime, archive.endTime);
     }
 
     @Override
     public int hashCode() {
         int result = archiveId;
-        result = 31 * result + (employeeId != null ? employeeId.hashCode() : 0);
-        result = 31 * result + (excursionId != null ? excursionId.hashCode() : 0);
+        result = 31 * result + (employee != null ? employee.hashCode() : 0);
+        result = 31 * result + (excursion != null ? excursion.hashCode() : 0);
         result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
         result = 31 * result + (endTime != null ? endTime.hashCode() : 0);
         return result;
@@ -89,8 +90,8 @@ public class Archive {
     public String toString() {
         return "Archive{" +
                 "archiveId=" + archiveId +
-                ", employeeId=" + employeeId +
-                ", excursionId=" + excursionId +
+                ", employee=" + employee +
+                ", excursion=" + excursion +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
                 '}';
