@@ -28,9 +28,9 @@ public class HallDao implements Dao<Hall>, CreateEntityFromDao<Hall> {
         List<Hall> listHall = new ArrayList<>();
         String sql = "SELECT * FROM hall";
         Statement statement = connect().createStatement();
-    ResultSet resultSet = statement.executeQuery(sql);
-        while(resultSet.next()){
-            hall = create(resultSet);
+        ResultSet resultSet = statement.executeQuery(sql);
+        while (resultSet.next()) {
+            listHall.add(create(resultSet));
         }
         resultSet.close();
         statement.close();
@@ -41,19 +41,19 @@ public class HallDao implements Dao<Hall>, CreateEntityFromDao<Hall> {
     public boolean delete(Hall hall) throws SQLException {
         String sql = "DELETE FROM hall where Hall_ID =?";
         PreparedStatement statement = connect().prepareStatement(sql);
-        statement.setInt(1,hall.getId());
-        boolean rowDeleted = statement.executeUpdate()>0;
+        statement.setInt(1, hall.getId());
+        boolean rowDeleted = statement.executeUpdate() > 0;
         statement.close();
         return rowDeleted;
     }
 
     @Override
     public boolean update(Hall hall) throws SQLException {
-        String sql ="UPDATE hall set Name = ? WHERE Hall_ID = ?";
+        String sql = "UPDATE hall set Name = ? WHERE Hall_ID = ?";
         PreparedStatement preparedStatement = connect().prepareStatement(sql);
-        preparedStatement.setString(1,hall.getHallName());
+        preparedStatement.setString(1, hall.getHallName());
         preparedStatement.setInt(2, hall.getId());
-        boolean rowUpdated = preparedStatement.executeUpdate()>0;
+        boolean rowUpdated = preparedStatement.executeUpdate() > 0;
         preparedStatement.close();
         return rowUpdated;
     }
