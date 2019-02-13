@@ -44,4 +44,10 @@
         <put-attribute name="body" value="/WEB-INF/views/tiles/pages/hall.jsp"/>
     </definition>
 
+    <!-- Author -->
+    <definition name = "author" extends="base-definition">
+        <put-attribute name="title" value="Author"/>
+        <put-attribute name="body" value="/WEB-INF/views/tiles/pages/author.jsp"/>
+    </definition>
+
 </tiles-definitions>

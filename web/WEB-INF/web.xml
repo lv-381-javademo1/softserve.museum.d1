@@ -50,6 +50,16 @@
         <url-pattern>/hall</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <display-name>AuthorController</display-name>
+        <servlet-name>AuthorController</servlet-name>
+        <servlet-class>controller.AuthorController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AuthorController</servlet-name>
+        <url-pattern>/author</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>
