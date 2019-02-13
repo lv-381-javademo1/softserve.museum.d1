@@ -17,7 +17,8 @@
             <ul class="nav navbar-nav">
                 <li><a href="${pageContext.request.contextPath}/excursion">Excursion</a></li>
                 <li><a href="${pageContext.request.contextPath}/exhibit">Exhibit</a></li>
-                <li><a href="${pageContext.request.contextPath}/archive">archive</a></li>
+                <li><a href="${pageContext.request.contextPath}/archive">Archive</a></li>
+                <li><a href="${pageContext.request.contextPath}/hall">Hall</a></li>
             </ul>
 
         </div><!-- /.navbar-collapse -->

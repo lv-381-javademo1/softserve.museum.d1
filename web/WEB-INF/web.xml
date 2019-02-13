@@ -40,6 +40,16 @@
         <url-pattern>/archive</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <display-name>HallController</display-name>
+        <servlet-name>HallController</servlet-name>
+        <servlet-class>controller.HallController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HallController</servlet-name>
+        <url-pattern>/hall</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>
