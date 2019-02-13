@@ -1,17 +1,18 @@
 package dao;
 
 import entity.Hall;
-import util.DbConnectionUtil;
+import util.CreateEntityFromDao;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import static util.DbConnectionUtil.connect;
-import static util.DbConnectionUtil.disconnect;
 
+public class HallDao implements Dao<Hall>, CreateEntityFromDao<Hall> {
 
-public class HallDao implements Dao<Hall> {
+    Hall hall;
+
     @Override
     public boolean add(Hall hall) throws SQLException {
         String sql = "INSERT INTO hall(Name) VALUES (?)";
@@ -29,13 +30,7 @@ public class HallDao implements Dao<Hall> {
         Statement statement = connect().createStatement();
     ResultSet resultSet = statement.executeQuery(sql);
         while(resultSet.next()){
-            int id = resultSet.getInt("Hall_ID");
-            String name = resultSet.getString("Name");
-
-            Hall hall = new Hall();
-            hall.setId(id);
-            hall.setHallName(name);
-            listHall.add(hall);
+            hall = create(resultSet);
         }
         resultSet.close();
         statement.close();
@@ -65,23 +60,33 @@ public class HallDao implements Dao<Hall> {
 
     @Override
     public Hall findOne(int id) throws SQLException {
-        Hall hall = new Hall();
+
         String sql = "SELECT * FROM hall WHERE Hall_id = ?";
 
         PreparedStatement statement = connect().prepareStatement(sql);
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
-            String name = resultSet.getString("Name");
-            int hallId = resultSet.getInt("Hall_ID");
-            hall.setHallName(name);
-            hall.setId(hallId);
+            hall = create(resultSet);
         }
         resultSet.close();
         statement.close();
 
-
         return hall;
 
+    }
+
+    @Override
+    public Hall create(ResultSet resultSet) throws SQLException {
+
+        Hall hall = new Hall();
+
+        int id = resultSet.getInt("Hall_ID");
+        String hallName = resultSet.getString("Name");
+
+        hall.setId(id);
+        hall.setHallName(hallName);
+
+        return hall;
     }
 }
