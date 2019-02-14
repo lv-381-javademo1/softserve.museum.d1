@@ -28,3 +28,8 @@ body{
 #site-content{
     min-height: 428px;
 }
+.main-form{
+    padding-top: 58px;
+    margin: auto;
+    float: none;
+}

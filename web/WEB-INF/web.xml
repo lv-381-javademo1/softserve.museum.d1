@@ -60,6 +60,16 @@
         <url-pattern>/author</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <display-name>HallFormController</display-name>
+        <servlet-name>HallFormController</servlet-name>
+        <servlet-class>controller.formsController.HallFormController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HallFormController</servlet-name>
+        <url-pattern>/hallForm</url-pattern>
+    </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>
