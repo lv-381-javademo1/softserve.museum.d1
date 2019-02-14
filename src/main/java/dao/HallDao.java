@@ -60,7 +60,7 @@ public class HallDao implements Dao<Hall>, CreateEntityFromDao<Hall> {
 
     @Override
     public Hall findOne(int id) throws SQLException {
-
+        System.out.println("in find one");
         String sql = "SELECT * FROM hall WHERE Hall_id = ?";
 
         PreparedStatement statement = connect().prepareStatement(sql);
