@@ -16,6 +16,8 @@
             <tr>
                 <td><c:out value="${hall.id}"/></td>
                 <td><c:out value="${hall.hallName}"/></td>
+                <td><a href="/hall?id=<c:out value='${hall.id}'/>&action=edit"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td><a href="/hall/delete?id=<c:out value='${hall.id}'/>"><span class="glyphicon glyphicon-remove"></span></a></td>
             </tr>
         </c:forEach>
         </tbody>
