@@ -1,8 +1,8 @@
 package controller.login;
 
 import dto.LoginDto;
-import org.apache.commons.codec.digest.DigestUtils;
 import service.AdminService;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +27,6 @@ public class AdminLoginController extends HttpServlet {
         loginDto.setLogin(req.getParameter("login").trim());
         try {
             loginDto.setPassword(getHash(req.getParameter("password").trim()));
-            System.out.println(loginDto.getPassword());
         } catch (Exception e) {
             e.printStackTrace();
         }
