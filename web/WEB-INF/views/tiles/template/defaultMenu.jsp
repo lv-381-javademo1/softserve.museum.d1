@@ -20,6 +20,7 @@
                 <li><a href="${pageContext.request.contextPath}/archive">Archive</a></li>
                 <li><a href="${pageContext.request.contextPath}/hall">Hall</a></li>
                 <li><a href="${pageContext.request.contextPath}/author">Author</a></li>
+                <li><a href="${pageContext.request.contextPath}/hallForm">HallForm</a></li>
             </ul>
 
         </div><!-- /.navbar-collapse -->
