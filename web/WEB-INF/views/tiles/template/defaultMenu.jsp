@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -22,6 +23,17 @@
                 <li><a href="${pageContext.request.contextPath}/author">Author</a></li>
                 <li><a href="${pageContext.request.contextPath}/hallForm">HallForm</a></li>
             </ul>
+            <c:if test="${role ne null && role == 'admin'}">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a>
+                            <span class="glyphicon glyphicon-user"></span> <c:out value='${adminName}'/>
+                        </a>
+                    </li>
+                    <li><a href="${pageContext.request.contextPath}/logout"><span
+                            class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                </ul>
+            </c:if>
 
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

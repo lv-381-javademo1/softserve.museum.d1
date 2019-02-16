@@ -56,4 +56,10 @@
         <put-attribute name="body" value="/WEB-INF/views/tiles/forms/hallForm.jsp"/>
     </definition>
 
+    <!-- Login -->
+    <definition name = "login" extends="base-definition">
+        <put-attribute name="title" value="Login"/>
+        <put-attribute name="body" value="/WEB-INF/views/tiles/pages/admin/login.jsp"/>
+    </definition>
+
 </tiles-definitions>
