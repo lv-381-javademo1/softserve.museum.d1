@@ -14,19 +14,17 @@ public class AdminService {
     }
 
     public boolean isValid(LoginDto loginDto) {
-        Admin admin ;
+        Admin admin;
         boolean result = true;
         try {
             admin = adminDao.findByLogin(loginDto.getLogin());
-            System.out.println(admin.toString());
-            if(admin.equals(null)){
+            if (admin.equals(null)) {
                 return false;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return  false;
+            return false;
         }
-
         result = result && (admin.getPassword().equals(loginDto.getPassword()));
         return result;
     }
