@@ -29,7 +29,7 @@ public class AdminLoginController extends HttpServlet {
 
             if (adminService.isValid(loginDto)) {
                 HttpSession session = req.getSession(true);
-                session.setAttribute("loginDto", loginDto);
+                session.setAttribute("adminName", loginDto.getLogin());
                 session.setAttribute("role","admin");
                 Cookie cookie = new Cookie("id_session", session.getId());
                 resp.addCookie(cookie);
