@@ -50,10 +50,16 @@
         <put-attribute name="body" value="/WEB-INF/views/tiles/pages/author.jsp"/>
     </definition>
 
-    <!-- HallForm -->
+    <!-- HallEditForm -->
     <definition name = "hallEditForm" extends="base-definition">
         <put-attribute name="title" value="HallForm"/>
         <put-attribute name="body" value="/WEB-INF/views/tiles/forms/hall/hallEditForm.jsp"/>
+    </definition>
+
+    <!-- hallInsertForm -->
+    <definition name = "hallInsertForm" extends="base-definition">
+        <put-attribute name="title" value="HallForm"/>
+        <put-attribute name="body" value="/WEB-INF/views/tiles/forms/hall/hallInsertForm.jsp"/>
     </definition>
 
     <!-- Login -->
@@ -61,5 +67,7 @@
         <put-attribute name="title" value="Login"/>
         <put-attribute name="body" value="/WEB-INF/views/tiles/pages/admin/login.jsp"/>
     </definition>
+
+
 
 </tiles-definitions>
