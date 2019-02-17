@@ -21,7 +21,6 @@
                 <li><a href="${pageContext.request.contextPath}/archive">Archive</a></li>
                 <li><a href="${pageContext.request.contextPath}/hall">Hall</a></li>
                 <li><a href="${pageContext.request.contextPath}/author">Author</a></li>
-                <li><a href="${pageContext.request.contextPath}/hallForm">HallForm</a></li>
             </ul>
             <c:if test="${role ne null && role == 'admin'}">
                 <ul class="nav navbar-nav navbar-right">
