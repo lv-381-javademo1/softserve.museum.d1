@@ -33,7 +33,7 @@ public class HallEditController extends HttpServlet {
         }
 
         req.setAttribute("hall", hall.getHallName());
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("WEB-INF/views/pages/forms/hallForm.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("WEB-INF/views/pages/forms/hall/hallEditForm.jsp");
         requestDispatcher.forward(req, resp);
     }
 

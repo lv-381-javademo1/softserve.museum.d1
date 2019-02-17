@@ -3,8 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <div class="container">
+
+    <div id="Top_header" >
     <h2>List of Halls</h2>
-    <button type="button">Click Me!</button>
+         <button type="button">Click Me!</button>
+    </div>
+
     <table class="table table-striped">
         <thead>
         <tr>
