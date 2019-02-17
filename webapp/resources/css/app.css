@@ -13,7 +13,7 @@ body{
     text-align: center;
     color: aliceblue;
     height: 398px;
-    background: url("/static/img/logo.jpg");
+    background: url("/resources/img/logo.jpg");
 }
 #header h1{
     padding-top: 100px;

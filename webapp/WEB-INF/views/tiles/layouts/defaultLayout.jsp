@@ -22,7 +22,7 @@
             integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw"
             crossorigin="anonymous"></script>
 
-    <link href="<c:url value='/static/css/app.css' />" rel="stylesheet">
+    <link href="<c:url value='/resources/css/app.css' />" rel="stylesheet">
 </head>
 
 <body>

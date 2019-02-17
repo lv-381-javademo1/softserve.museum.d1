@@ -4,6 +4,7 @@
 
 <div class="container">
     <h2>List of Halls</h2>
+    <button type="button">Click Me!</button>
     <table class="table table-striped">
         <thead>
         <tr>

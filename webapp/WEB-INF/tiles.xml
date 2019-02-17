@@ -51,9 +51,9 @@
     </definition>
 
     <!-- HallForm -->
-    <definition name = "hallForm" extends="base-definition">
+    <definition name = "hallEditForm" extends="base-definition">
         <put-attribute name="title" value="HallForm"/>
-        <put-attribute name="body" value="/WEB-INF/views/tiles/forms/hallForm.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/tiles/forms/hall/hallEditForm.jsp"/>
     </definition>
 
     <!-- Login -->
