@@ -26,7 +26,7 @@ public class ExcursionForUserController extends HttpServlet {
             excursions = excursionDao.findAll();
             request.setAttribute("excursionss", excursions);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/views/pages/home.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/views/pages/user/home1.jsp");
             dispatcher.forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
