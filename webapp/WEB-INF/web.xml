@@ -59,6 +59,7 @@
         <servlet-name>AuthorController</servlet-name>
         <url-pattern>/author</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.css</url-pattern>
