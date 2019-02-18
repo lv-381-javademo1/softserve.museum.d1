@@ -17,7 +17,7 @@ public class AdminLogoutController extends HttpServlet {
         if (session != null) {
             session.invalidate();
         }
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/");
         dispatcher.forward(req, resp);
 
     }
