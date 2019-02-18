@@ -23,7 +23,7 @@
             crossorigin="anonymous"></script>
 
     <link href="<c:url value='/resources/css/app.css' />" rel="stylesheet" type="text/css">
-    <link href="<c:url value='/resources/css/app2.css' />" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
