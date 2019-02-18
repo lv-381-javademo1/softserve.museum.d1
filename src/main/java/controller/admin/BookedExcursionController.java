@@ -28,7 +28,7 @@ public class BookedExcursionController extends HttpServlet {
         try {
             bookedExcursionList = bookedExcursionDao.findAll();
             req.setAttribute("bookedExcursionList", bookedExcursionList);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("WEB-INF/views/pages/bookedExcursion.jsp");
             requestDispatcher.forward(req, resp);
         } catch (SQLException e) {
             e.printStackTrace();
