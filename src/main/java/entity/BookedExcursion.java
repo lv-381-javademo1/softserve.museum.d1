@@ -4,10 +4,15 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 public class BookedExcursion {
+
     private int id;
+
     private String userName;
+
     private String email;
+
     private Timestamp bookingTime;
+
     private Excursion excursion;
 
     public int getId() {
