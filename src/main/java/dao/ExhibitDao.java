@@ -1,5 +1,6 @@
 package dao;
 
+import dto.ExhibitFullInfDto;
 import entity.Exhibit;
 import util.CreateEntityFromDao;
 
@@ -118,5 +119,45 @@ public class ExhibitDao implements Dao<Exhibit>, CreateEntityFromDao<Exhibit> {
         exhibit.setMaterial(material);
         exhibit.setTechnique(technique);
         return exhibit;
+    }
+
+    public List<ExhibitFullInfDto> exhibitStatistic() throws SQLException {
+
+        List<ExhibitFullInfDto> result = new ArrayList<>();
+
+        String sql = "SELECT exhibit.ExhibitID, exhibit.Name AS 'Exhibit Name', exhibit.Material, exhibit.Technique, "
+                + "hall.Name AS 'Hall', "
+                + "author.FirstName AS 'Author FirstName', author.LastName AS 'Author LastName' "
+                + "FROM exhibit "
+                + "LEFT JOIN hall ON exhibit.Hall_ID = hall.Hall_ID "
+                + "LEFT JOIN author ON exhibit.AuthorID = author.AuthorID ";
+                //+ "WHERE exhibit.Name = ?";
+        Statement statement = connect().createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        while (resultSet.next()){
+
+            String exhibitID = String.valueOf(resultSet.getInt("ExhibitID"));
+            String exhibitName = resultSet.getString("Exhibit Name");
+            String material = resultSet.getString("Material");
+            String technique = resultSet.getString("Technique");
+            String hall = resultSet.getString("Hall");
+            String authorFirstname = resultSet.getString("Author FirstName");
+            String authorLastname = resultSet.getString("Author LastName");
+
+            ExhibitFullInfDto exhibitFullInfDto = new ExhibitFullInfDto();
+
+            exhibitFullInfDto.setExhibitID(exhibitID);
+            exhibitFullInfDto.setExhibitName(exhibitName);
+            exhibitFullInfDto.setMaterial(material);
+            exhibitFullInfDto.setTechnique(technique);
+            exhibitFullInfDto.setHall(hall);
+            exhibitFullInfDto.setAuthorFirstname(authorFirstname);
+            exhibitFullInfDto.setAuthorLastname(authorLastname);
+
+            result.add(exhibitFullInfDto);
+        }
+
+        return result;
     }
 }

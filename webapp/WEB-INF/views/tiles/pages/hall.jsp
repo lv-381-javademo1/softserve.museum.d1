@@ -6,7 +6,7 @@
 
     <div id="Top_header" >
     <h2>List of Halls</h2>
-         <button type="button">Click Me!</button>
+        <a href="${pageContext.request.contextPath}/insertHall" class="btn btn-default">Add new Hall</a>
     </div>
 
     <table class="table table-striped">

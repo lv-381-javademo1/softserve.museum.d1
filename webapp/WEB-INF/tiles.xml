@@ -59,7 +59,7 @@
     <!-- hallInsertForm -->
     <definition name = "hallInsertForm" extends="base-definition">
         <put-attribute name="title" value="HallForm"/>
-        <put-attribute name="body" value="/WEB-INF/views/tiles/forms/hall/hallEditForm.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/tiles/forms/hall/hallInsertForm.jsp"/>
     </definition>
 
     <!-- Login -->
