@@ -333,7 +333,6 @@
 <script src="<c:url value='/resources/js/jquery.sticky.js' />"></script>
 <script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
 <script src="<c:url value='/resources/js/parallax.min.js' />"></script>
-<script src="<c:url value='/resources/js/mail-script.js' />"></script>
 <script src="<c:url value='/resources/js/main.js' />"></script>
 </body>
 </html>
