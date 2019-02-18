@@ -1,4 +1,4 @@
-package controller;
+package controller.user;
 
 import dao.ExcursionDao;
 import entity.Excursion;
@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/")
+@WebServlet("/book_excursion")
 public class ExcursionForUserController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
@@ -24,9 +24,9 @@ public class ExcursionForUserController extends HttpServlet {
         List<Excursion> excursions;
         try {
             excursions = excursionDao.findAll();
-            request.setAttribute("excursionss", excursions);
+            request.setAttribute("excursions", excursions);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/views/pages/user/home1.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/views/pages/user/bookExcursion.jsp");
             dispatcher.forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
