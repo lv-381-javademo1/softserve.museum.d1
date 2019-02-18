@@ -10,6 +10,10 @@
         <listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
     </listener>
 
+    <listener>
+        <listener-class>config.AppContextListener</listener-class>
+    </listener>
+
     <servlet>
         <display-name>ExcursionController</display-name>
         <servlet-name>ExcursionController</servlet-name>
