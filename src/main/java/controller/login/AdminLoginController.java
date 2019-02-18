@@ -15,6 +15,9 @@ import static util.Md5Hash.getHash;
 public class AdminLoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        boolean invalid = Boolean.parseBoolean(req.getParameter("invalid"));
+        req.setAttribute("invalid", invalid);
+        req.setAttribute("invalidMessage", "Log in please");
         RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/pages/admin/login.jsp");
         dispatcher.forward(req, resp);
     }
