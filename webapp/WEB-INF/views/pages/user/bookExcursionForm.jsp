@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -23,7 +22,6 @@
     <!--
     CSS
     ============================================= -->
-
     <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/linearicons.css' />"/>
     <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/font-awesome.min.css' />">
     <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/bootstrap.css' />">
@@ -77,49 +75,41 @@
         <div class="row d-flex align-items-center justify-content-center">
             <div class="about-content col-lg-12">
                 <h1 class="text-white">
-                    Buy Tickets
+                    Please fill form
                 </h1>
-                <p class="text-white link-nav"><a href="/">Home </a> <span class="lnr lnr-arrow-right"></span> <a
-                        href="/book_excursion"> Tickets</a></p>
+                <p class="text-white link-nav"><a href="/">Home </a>
             </div>
         </div>
     </div>
 </section>
 <!-- End banner Area -->
 
-
-<!-- Start upcoming-exibition Area -->
-<section class="upcoming-exibition-area section-gap">
+<!-- Start contact-page Area -->
+<section class="contact-page-area section-gap">
     <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-70 col-lg-8">
-                <div class="title text-center">
-                    <h1 class="mb-10">Ongoing Exhibitions from the scratch</h1>
-                    <p>Who are in extremely love with eco friendly system.</p>
-                </div>
-            </div>
-        </div>
         <div class="row">
-            <c:forEach var="excursion" items="${excursions}">
-                <div class="col-lg-4 col-md-6 single-exhibition">
-                    <div class="thumb">
-                        <img class="img-fluid" src="<c:url value="/resources/img/pages/ex3.jpg"></c:url>" alt="">
+            <div class="col-lg-12">
+                <form class="form-area " id="myForm" action="${pageContext.request.contextPath}/book_excursion_form"
+                      method="post" class="contact-form text-right">
+                    <div class="row">
+                        <div class="col-lg-6 form-group" style="margin: auto;">
+                            <input name="name" placeholder="Enter your name"
+                                 class="common-input mb-20 form-control"
+                                   required="" type="text">
+
+                            <input name="email" placeholder="Enter email address"
+                                   pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
+                                   class="common-input mb-20 form-control" required="" type="email">
+                            <button class="primary-btn mt-20 text-white" type="submit" style="float: right;">Book</button>
+                        </div>
+
                     </div>
-                    <p class="date">Time: <c:out value="${excursion.startTime}"/> Duration: <c:out
-                            value="${excursion.duration}"/></p>
-                    <a href="/book_excursion_form?id=<c:out value="${excursion.excursionId}"/>"><h4><c:out value="${excursion.name}"/></h4></a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consec teturadip isicing elit, sed do eiusmod tempor.
-                    </p>
-                    <div class="meta-bottom d-flex justify-content-start">
-                        <p class="price">$<c:out value="${excursion.price}"/></p>
-                    </div>
-                </div>
-            </c:forEach>
+                </form>
+            </div>
         </div>
     </div>
 </section>
-<!-- End upcoming-exibition Area -->
+<!-- End contact-page Area -->
 
 <!-- start footer Area -->
 <footer class="footer-area section-gap" style="border-top: 4px #0b0b0b">
@@ -164,4 +154,5 @@
 <script src="<c:url value='/resources/js/main.js' />"></script>
 </body>
 </html>
+
 
