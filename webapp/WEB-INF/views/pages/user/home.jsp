@@ -57,24 +57,12 @@
     <div class="container">
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
-                <a href="index.html"><img src="img/logo.png" alt="" title=""/></a>
+                <a href="/"><img src="<c:url value="/resources/img/logo.png"></c:url>" alt="" title=""/></a>
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="event.html">Events</a></li>
-                    <li><a href="ticket.html">Ticket</a></li>
-                    <li><a href="blog-home.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li class="menu-has-children"><a href="">Pages</a>
-                        <ul>
-                            <li><a href="blog-single.html">Blog Single</a></li>
-                            <li><a href="category.html">Category</a></li>
-                            <li><a href="elements.html">Elements</a></li>
-                        </ul>
-                    </li>
+                    <li class="menu-active"><a href="/">Home</a></li>
+                    <li><a href="/book_excursion">Book Ticket</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -118,10 +106,11 @@
                     <div class="overlay">
                         <div class="text">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut labore
                                 et dolore magna aliqua. Ut enim ad minim veniam.
                             </p>
-                            <a href="#" class="text-uppercase primary-btn">Book ticket</a>
+                            <a href="/book_excursion" class="text-uppercase primary-btn">Book ticket</a>
                         </div>
                     </div>
                 </div>
@@ -138,10 +127,11 @@
                     <div class="overlay">
                         <div class="text">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut labore
                                 et dolore magna aliqua. Ut enim ad minim veniam,.
                             </p>
-                            <a href="#" class="text-uppercase primary-btn">Book ticket</a>
+                            <a href="/book_excursion" class="text-uppercase primary-btn">Book ticket</a>
                         </div>
                     </div>
                 </div>
@@ -158,10 +148,11 @@
                     <div class="overlay">
                         <div class="text">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut labore
                                 et dolore magna aliqua. Ut enim ad minim veniam.
                             </p>
-                            <a href="#" class="text-uppercase primary-btn">Book ticket</a>
+                            <a href="/book_excursion" class="text-uppercase primary-btn">Book ticket</a>
                         </div>
                     </div>
                 </div>
@@ -194,7 +185,6 @@
     </div>
 </section>
 <!-- End quote Area -->
-
 
 
 <!-- Start upcoming-event Area -->
@@ -256,7 +246,6 @@
 <!-- End upcoming-event Area -->
 
 
-
 <!-- Start gallery Area -->
 <section class="gallery-area section-gap" id="gallery">
     <div class="container">
@@ -270,20 +259,34 @@
             </div>
         </div>
         <div id="grid-container" class="row">
-            <a class="single-gallery" href="<c:url value="/resources/img/g1.jpg"></c:url>"><img class="grid-item" src="<c:url value="/resources/img/g1.jpg"></c:url>"></a>
-            <a class="single-gallery" href="<c:url value="/resources/img/g2.jpg"></c:url>"><img class="grid-item" src="<c:url value="/resources/img/g2.jpg"></c:url>"></a>
-            <a class="single-gallery" href="<c:url value="/resources/img/g3.jpg"></c:url>"><img class="grid-item" src="<c:url value="/resources/img/g3.jpg"></c:url>"></a>
-            <a class="single-gallery" href="<c:url value="/resources/img/g4.jpg"></c:url>"><img class="grid-item" src="<c:url value="/resources/img/g4.jpg"></c:url>"></a>
-            <a class="single-gallery" href="<c:url value="/resources/img/g5.jpg"></c:url>"><img class="grid-item" src="<c:url value="/resources/img/g5.jpg"></c:url>"></a>
-            <a class="single-gallery" href="<c:url value="/resources/img/g6.jpg"></c:url>"><img class="grid-item" src="<c:url value="/resources/img/g6.jpg"></c:url>"></a>
-            <a class="single-gallery" href="<c:url value="/resources/img/g7.jpg"></c:url>"><img class="grid-item" src="<c:url value="/resources/img/g7.jpg"></c:url>"></a>
-            <a class="single-gallery" href="<c:url value="/resources/img/g8.jpg"></c:url>"><img class="grid-item" src="<c:url value="/resources/img/g8.jpg"></c:url>"></a>
-            <a class="single-gallery" href="<c:url value="/resources/img/g9.jpg"></c:url>"><img class="grid-item" src="<c:url value="/resources/img/g9.jpg"></c:url>"></a>
-            <a class="single-gallery" href="<c:url value="/resources/img/g10.jpg"></c:url>"><img class="grid-item" src="<c:url value="/resources/img/g10.jpg"></c:url>"></a>
-            <a class="single-gallery" href="<c:url value="/resources/img/g11.jpg"></c:url>"><img class="grid-item" src="<c:url value="/resources/img/g11.jpg"></c:url>"></a>
-            <a class="single-gallery" href="<c:url value="/resources/img/g12.jpg"></c:url>"><img class="grid-item" src="<c:url value="/resources/img/g12.jpg"></c:url>"></a>
-            <a class="single-gallery" href="<c:url value="/resources/img/g4.jpg"></c:url>"><img class="grid-item" src="<c:url value="/resources/img/g4.jpg"></c:url>"></a>
-            <a class="single-gallery" href="<c:url value="/resources/img/g5.jpg"></c:url>"><img class="grid-item" src="<c:url value="/resources/img/g5.jpg"></c:url>"></a>
+            <a class="single-gallery" href="<c:url value="/resources/img/g1.jpg"></c:url>"><img class="grid-item"
+                                                                                                src="<c:url value="/resources/img/g1.jpg"></c:url>"></a>
+            <a class="single-gallery" href="<c:url value="/resources/img/g2.jpg"></c:url>"><img class="grid-item"
+                                                                                                src="<c:url value="/resources/img/g2.jpg"></c:url>"></a>
+            <a class="single-gallery" href="<c:url value="/resources/img/g3.jpg"></c:url>"><img class="grid-item"
+                                                                                                src="<c:url value="/resources/img/g3.jpg"></c:url>"></a>
+            <a class="single-gallery" href="<c:url value="/resources/img/g4.jpg"></c:url>"><img class="grid-item"
+                                                                                                src="<c:url value="/resources/img/g4.jpg"></c:url>"></a>
+            <a class="single-gallery" href="<c:url value="/resources/img/g5.jpg"></c:url>"><img class="grid-item"
+                                                                                                src="<c:url value="/resources/img/g5.jpg"></c:url>"></a>
+            <a class="single-gallery" href="<c:url value="/resources/img/g6.jpg"></c:url>"><img class="grid-item"
+                                                                                                src="<c:url value="/resources/img/g6.jpg"></c:url>"></a>
+            <a class="single-gallery" href="<c:url value="/resources/img/g7.jpg"></c:url>"><img class="grid-item"
+                                                                                                src="<c:url value="/resources/img/g7.jpg"></c:url>"></a>
+            <a class="single-gallery" href="<c:url value="/resources/img/g8.jpg"></c:url>"><img class="grid-item"
+                                                                                                src="<c:url value="/resources/img/g8.jpg"></c:url>"></a>
+            <a class="single-gallery" href="<c:url value="/resources/img/g9.jpg"></c:url>"><img class="grid-item"
+                                                                                                src="<c:url value="/resources/img/g9.jpg"></c:url>"></a>
+            <a class="single-gallery" href="<c:url value="/resources/img/g10.jpg"></c:url>"><img class="grid-item"
+                                                                                                 src="<c:url value="/resources/img/g10.jpg"></c:url>"></a>
+            <a class="single-gallery" href="<c:url value="/resources/img/g11.jpg"></c:url>"><img class="grid-item"
+                                                                                                 src="<c:url value="/resources/img/g11.jpg"></c:url>"></a>
+            <a class="single-gallery" href="<c:url value="/resources/img/g12.jpg"></c:url>"><img class="grid-item"
+                                                                                                 src="<c:url value="/resources/img/g12.jpg"></c:url>"></a>
+            <a class="single-gallery" href="<c:url value="/resources/img/g4.jpg"></c:url>"><img class="grid-item"
+                                                                                                src="<c:url value="/resources/img/g4.jpg"></c:url>"></a>
+            <a class="single-gallery" href="<c:url value="/resources/img/g5.jpg"></c:url>"><img class="grid-item"
+                                                                                                src="<c:url value="/resources/img/g5.jpg"></c:url>"></a>
         </div>
     </div>
 </section>
