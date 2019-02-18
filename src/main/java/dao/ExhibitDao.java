@@ -158,6 +158,9 @@ public class ExhibitDao implements Dao<Exhibit>, CreateEntityFromDao<Exhibit> {
             result.add(exhibitFullInfDto);
         }
 
+        statement.close();
+        resultSet.close();
+
         return result;
     }
 }
