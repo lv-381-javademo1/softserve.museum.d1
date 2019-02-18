@@ -4,6 +4,8 @@ import entity.BookedExcursion;
 import entity.Excursion;
 import util.CreateEntityFromDao;
 
+import javax.servlet.RequestDispatcher;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,7 +18,15 @@ public class BookedExcursionDao implements Dao<BookedExcursion>, CreateEntityFro
 
     @Override
     public boolean add(BookedExcursion bookedExcursion) throws SQLException {
-        return false;
+        String sql = "INSERT INTO bookedexcursion(ExcursionID, UserName, Email) VALUES (?, ?, ?)";
+
+        PreparedStatement preparedStatement = connect().prepareStatement(sql);
+        preparedStatement.setInt(1, bookedExcursion.getExcursion().getExcursionId());
+        preparedStatement.setString(2, bookedExcursion.getUserName());
+        preparedStatement.setString(3, bookedExcursion.getEmail());
+
+        boolean inserted = preparedStatement.executeUpdate() > 0;
+        return inserted;
     }
 
     @Override
