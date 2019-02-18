@@ -6,14 +6,11 @@ import java.util.Objects;
 public class BookedExcursion {
 
     private int id;
-
-    private String userName;
-
-    private String email;
-
-    private Timestamp bookingTime;
-
     private Excursion excursion;
+    private String userName;
+    private String email;
+    private String bookingTime;
+
 
     public int getId() {
         return id;
@@ -21,6 +18,14 @@ public class BookedExcursion {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Excursion getExcursion() {
+        return excursion;
+    }
+
+    public void setExcursion(Excursion excursion) {
+        this.excursion = excursion;
     }
 
     public String getUserName() {
@@ -39,49 +44,46 @@ public class BookedExcursion {
         this.email = email;
     }
 
-    public Timestamp getBookingTime() {
+    public String getBookingTime() {
         return bookingTime;
     }
 
-    public void setBookingTime(Timestamp bookingTime) {
+    public void setBookingTime(String bookingTime) {
         this.bookingTime = bookingTime;
-    }
-
-    public Excursion getExcursion() {
-        return excursion;
-    }
-
-    public void setExcursion(Excursion excursion) {
-        this.excursion = excursion;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
         BookedExcursion that = (BookedExcursion) o;
-        return id == that.id &&
-                Objects.equals(userName, that.userName) &&
-                Objects.equals(email, that.email) &&
-                Objects.equals(bookingTime, that.bookingTime) &&
-                Objects.equals(excursion, that.excursion);
+
+        if (id != that.id) return false;
+        if (excursion != null ? !excursion.equals(that.excursion) : that.excursion != null) return false;
+        if (userName != null ? !userName.equals(that.userName) : that.userName != null) return false;
+        if (email != null ? !email.equals(that.email) : that.email != null) return false;
+        return bookingTime != null ? bookingTime.equals(that.bookingTime) : that.bookingTime == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userName, email, bookingTime, excursion);
+        int result = id;
+        result = 31 * result + (excursion != null ? excursion.hashCode() : 0);
+        result = 31 * result + (userName != null ? userName.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (bookingTime != null ? bookingTime.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "BookedExcursion{" +
                 "id=" + id +
+                ", excursion=" + excursion +
                 ", userName='" + userName + '\'' +
                 ", email='" + email + '\'' +
-                ", bookingTime=" + bookingTime +
-                ", excursion=" + excursion +
+                ", bookingTime='" + bookingTime + '\'' +
                 '}';
     }
 }
