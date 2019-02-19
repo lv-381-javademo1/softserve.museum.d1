@@ -96,11 +96,13 @@
                     <div class="row">
                         <div class="col-lg-6 form-group" style="margin: auto;">
                             <input name="name" placeholder="Enter your name"
+                                   required=""
                                    class="common-input mb-20 form-control"
                                    type="text">
 
                             <input name="email" placeholder="Enter email address"
-
+                                   pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
+                                   required=""
                                    class="common-input mb-20 form-control" type="email">
                             <c:if test="${error ne null}">
                                 <div class="alert alert-danger alert-dismissible" role="alert">
