@@ -65,6 +65,7 @@
                 <ul class="nav-menu">
                     <li class="menu-active"><a href="/">Home</a></li>
                     <li><a href="/book_excursion">Book Ticket</a></li>
+                    <li><a href="/login">Login</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
