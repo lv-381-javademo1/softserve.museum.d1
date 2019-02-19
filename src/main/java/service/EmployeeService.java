@@ -1,17 +1,15 @@
 package service;
 
-import dao.AdminDao;
 import dao.EmployeeDao;
 import dto.LoginDto;
-import entity.Admin;
 import entity.Employee;
 
 
-public class AdminService {
+public class EmployeeService {
 
     private EmployeeDao employeeDao = new EmployeeDao();
 
-    public AdminService() {
+    public EmployeeService() {
 
     }
 
