@@ -1,4 +1,7 @@
 package service;
 
-public class EntityDtoInterface {
+public interface EntityDtoInterface<Entity, Dto> {
+
+    Entity dtoToEntity(Dto dto);
+    Dto entityToDto(Entity entity);
 }
