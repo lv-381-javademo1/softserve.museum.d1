@@ -2,6 +2,7 @@ package controller.admin.hall;
 
 import dao.HallDao;
 import entity.Hall;
+import service.InputValidationService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,17 +30,23 @@ public class HallInsertController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        InputValidationService inputValidationService = new InputValidationService();
         String newName = req.getParameter("Name").trim();
-        hall.setHallName(newName);
-        try{
-            if (hall != null) {
-                hallDao.add(hall);
+        if (!inputValidationService.isValidInput(newName)) {
+            req.setAttribute("error", inputValidationService.getMessage());
+            RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/pages/forms/hall/hallInsertForm.jsp");
+            dispatcher.forward(req, resp);
+        } else {
+            hall.setHallName(newName);
+            try {
+                if (hall != null) {
+                    hallDao.add(hall);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
 
-        resp.sendRedirect("/hall");
+            resp.sendRedirect("/hall");
+        }
     }
 }
