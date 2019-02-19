@@ -11,10 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(
-        name = "HallDeleteController",
-        urlPatterns = "/hall/delete"
-)
+@WebServlet("/halldelete")
 public class HallDeleteController extends HttpServlet {
     private HallDao hallDao = new HallDao();
     @Override
