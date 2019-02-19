@@ -1,21 +1,17 @@
 package entity;
 
+import java.util.Objects;
+
 public class Employee {
 
     private int employeeId;
     private String firstName;
     private String lastName;
     private String position;
+    private String login;
+    private String password;
+    private String role;
 
-    public Employee(int employeeId, String firstName, String lastName, String position) {
-        this.employeeId = employeeId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.position = position;
-    }
-
-    public Employee() {
-    }
 
     public int getEmployeeId() {
         return employeeId;
@@ -49,26 +45,49 @@ public class Employee {
         this.position = position;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Employee employee = (Employee) o;
-
-        if (employeeId != employee.employeeId) return false;
-        if (firstName != null ? !firstName.equals(employee.firstName) : employee.firstName != null) return false;
-        if (lastName != null ? !lastName.equals(employee.lastName) : employee.lastName != null) return false;
-        return position != null ? position.equals(employee.position) : employee.position == null;
+        return employeeId == employee.employeeId &&
+                Objects.equals(firstName, employee.firstName) &&
+                Objects.equals(lastName, employee.lastName) &&
+                Objects.equals(position, employee.position) &&
+                Objects.equals(login, employee.login) &&
+                Objects.equals(password, employee.password) &&
+                Objects.equals(role, employee.role);
     }
 
     @Override
     public int hashCode() {
-        int result = employeeId;
-        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
-        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
-        result = 31 * result + (position != null ? position.hashCode() : 0);
-        return result;
+        return Objects.hash(employeeId, firstName, lastName, position, login, password, role);
     }
 
     @Override
@@ -78,6 +97,9 @@ public class Employee {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", position='" + position + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }
