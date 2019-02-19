@@ -22,7 +22,7 @@
                 <td><c:out value="${hall.id}"/></td>
                 <td><c:out value="${hall.hallName}"/></td>
                 <td><a href="/editHall?id=<c:out value='${hall.id}'/>"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                <td><a href="/hall/delete?id=<c:out value='${hall.id}'/>"><span class="glyphicon glyphicon-remove"></span></a></td>
+                <td><a href="/halldelete?id=<c:out value='${hall.id}'/>"><span class="glyphicon glyphicon-remove"></span></a></td>
             </tr>
         </c:forEach>
         </tbody>
