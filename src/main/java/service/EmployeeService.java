@@ -1,31 +1,33 @@
 package service;
 
 import dao.AdminDao;
+import dao.EmployeeDao;
 import dto.LoginDto;
 import entity.Admin;
+import entity.Employee;
 
 
 public class AdminService {
 
-    private AdminDao adminDao = new AdminDao();
+    private EmployeeDao employeeDao = new EmployeeDao();
 
     public AdminService() {
 
     }
 
     public boolean isValid(LoginDto loginDto) {
-        Admin admin;
+        Employee employee;
         boolean result = true;
         try {
-            admin = adminDao.findByLogin(loginDto.getLogin());
-            if (admin.equals(null)) {
+            employee = employeeDao.findByLogin(loginDto.getLogin());
+            if (employee.equals(null)) {
                 return false;
             }
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
-        result = result && (admin.getPassword().equals(loginDto.getPassword()));
+        result = result && (employee.getPassword().equals(loginDto.getPassword()));
         return result;
     }
 

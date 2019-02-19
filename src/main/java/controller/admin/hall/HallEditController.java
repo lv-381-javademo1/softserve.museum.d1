@@ -2,6 +2,7 @@ package controller.admin.hall;
 
 import dao.HallDao;
 import entity.Hall;
+import service.InputValidationService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,10 +22,12 @@ public class HallEditController extends HttpServlet {
     private HallDao hallDao = new HallDao();
 
     private Hall hall = new Hall();
+    private int id;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        int id = Integer.parseInt(req.getParameter("id"));
+        id = Integer.parseInt(req.getParameter("id"));
         System.out.println(id);
         try {
             hall = hallDao.findOne(id);
@@ -39,15 +42,22 @@ public class HallEditController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("In post");
+        InputValidationService inputValidationService = new InputValidationService();
         String newName = req.getParameter("Name").trim();
-        hall.setHallName(newName);
-        try{
-            hallDao.update(hall);
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
+        if (!inputValidationService.isValidInput(newName)) {
+            req.setAttribute("error", inputValidationService.getMessage());
+            req.setAttribute("id", id);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/pages/forms/hall/hallEditForm.jsp");
+            dispatcher.forward(req, resp);
+        } else {
+            hall.setHallName(newName);
+            try {
+                hallDao.update(hall);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
 
-        resp.sendRedirect("/hall");
+            resp.sendRedirect("/hall");
+        }
     }
 }
