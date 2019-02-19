@@ -1,4 +1,4 @@
-package controller.insert;
+package controller.admin.hall;
 
 import dao.HallDao;
 import entity.Hall;

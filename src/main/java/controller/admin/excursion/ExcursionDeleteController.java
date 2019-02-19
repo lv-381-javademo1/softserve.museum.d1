@@ -1,4 +1,4 @@
-package controller.delete;
+package controller.admin.excursion;
 
 public class ExcursionDeleteController {
 }
