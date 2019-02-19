@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(
-        name = "HallDeleteController",
+        name = "BookedExcursionController",
         urlPatterns = "/bookedexcursion"
 )
 public class BookedExcursionController extends HttpServlet {
