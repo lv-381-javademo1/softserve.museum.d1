@@ -14,56 +14,6 @@
         <listener-class>config.AppContextListener</listener-class>
     </listener>
 
-    <servlet>
-        <display-name>ExcursionController</display-name>
-        <servlet-name>ExcursionController</servlet-name>
-        <servlet-class>controller.admin.excursion.ExcursionController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ExcursionController</servlet-name>
-        <url-pattern>/excursion</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <display-name>ExhibitController</display-name>
-        <servlet-name>ExhibitController</servlet-name>
-        <servlet-class>controller.admin.exhibit.ExhibitController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ExhibitController</servlet-name>
-        <url-pattern>/exhibit</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <display-name>ArchiveController</display-name>
-        <servlet-name>ArchiveController</servlet-name>
-        <servlet-class>controller.admin.archive.ArchiveController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ArchiveController</servlet-name>
-        <url-pattern>/archive</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <display-name>HallController</display-name>
-        <servlet-name>HallController</servlet-name>
-        <servlet-class>controller.admin.hall.HallController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>HallController</servlet-name>
-        <url-pattern>/hall</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <display-name>AuthorController</display-name>
-        <servlet-name>AuthorController</servlet-name>
-        <servlet-class>controller.admin.author.AuthorController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>AuthorController</servlet-name>
-        <url-pattern>/author</url-pattern>
-    </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.css</url-pattern>

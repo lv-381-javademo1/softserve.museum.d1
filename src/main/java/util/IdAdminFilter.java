@@ -8,13 +8,17 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebFilter(
-        urlPatterns = {
-                "/hall",
-                "/excursion",
-                "/exhibit",
-                "/bookedexcursion",
-                "/archive",
-                "/author",
+        servletNames = {
+                "ArchiveController",
+                "AuthorController",
+                "BookedExcursionController",
+                "ExcursionController",
+                "ExcursionDeleteController",
+                "ExhibitController",
+                "HallController",
+                "HallDeleteController",
+                "HallEditController",
+                "HallInsertController",
         },
         filterName = "AdminFilter",
         description = "Filter all admin URLs"
