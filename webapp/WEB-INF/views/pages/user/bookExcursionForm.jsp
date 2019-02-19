@@ -63,6 +63,7 @@
                 <ul class="nav-menu">
                     <li class="menu-active"><a href="/">Home</a></li>
                     <li><a href="/book_excursion">Book Ticket</a></li>
+                    <li><a href="/login">Login</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -95,15 +96,23 @@
                     <div class="row">
                         <div class="col-lg-6 form-group" style="margin: auto;">
                             <input name="name" placeholder="Enter your name"
-                                 class="common-input mb-20 form-control"
-                                   required="" type="text">
+                                   class="common-input mb-20 form-control"
+                                   type="text">
 
                             <input name="email" placeholder="Enter email address"
-                                   pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-                                   class="common-input mb-20 form-control" required="" type="email">
-                            <button class="primary-btn mt-20 text-white" type="submit" style="float: right;">Book</button>
-                        </div>
 
+                                   class="common-input mb-20 form-control" type="email">
+                            <c:if test="${error ne null}">
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                    <strong>Warning!</strong> ${error}
+                                </div>
+                            </c:if>
+                            <button class="primary-btn mt-20 text-white" type="submit" style="float: right;">Book
+                            </button>
+
+                        </div>
                     </div>
                 </form>
             </div>
