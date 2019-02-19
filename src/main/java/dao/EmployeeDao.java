@@ -82,6 +82,21 @@ public class EmployeeDao implements Dao<Employee>, CreateEntityFromDao<Employee>
         return employee;
     }
 
+    public Employee findByLogin(String login) throws SQLException {
+
+        String sql = "SELECT * FROM employee where Login = ?";
+
+        PreparedStatement statement = connect().prepareStatement(sql);
+        statement.setString(1, login);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next()) {
+            employee = create(resultSet);
+        }
+        resultSet.close();
+        statement.close();
+        return employee;
+    }
+
     @Override
     public Employee create(ResultSet resultSet) throws SQLException {
         Employee employee = new Employee();
@@ -95,4 +110,5 @@ public class EmployeeDao implements Dao<Employee>, CreateEntityFromDao<Employee>
         employee.setEmployeeId(employeeID);
         return employee;
     }
+
 }
