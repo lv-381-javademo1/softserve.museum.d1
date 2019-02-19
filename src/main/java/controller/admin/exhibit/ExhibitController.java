@@ -2,6 +2,8 @@ package controller.admin.exhibit;
 
 import dao.ExhibitDao;
 import dto.ExhibitFullInfDto;
+import entity.Exhibit;
+import service.exhibit.ExhibitFullInfService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,12 +27,19 @@ public class ExhibitController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        List<ExhibitFullInfDto> exhibitFullInfDtoList = new ArrayList<>();
+        List<Exhibit> exhibitList = new ArrayList<>();
         ExhibitDao exhibitDao = new ExhibitDao();
+        ExhibitFullInfService exhibitFullInfService = new ExhibitFullInfService();
+        List<ExhibitFullInfDto> exhibitFullInfDtoList = new ArrayList<>();
+
         try {
-            exhibitFullInfDtoList = exhibitDao.exhibitStatistic();
+            exhibitList = exhibitDao.findAll();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+
+        for (Exhibit exhibit : exhibitList) {
+            exhibitFullInfDtoList.add(exhibitFullInfService.entityToDto(exhibit));
         }
 
         request.setAttribute("exhibits", exhibitFullInfDtoList);

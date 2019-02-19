@@ -12,7 +12,7 @@
             </button>
             <a class="navbar-brand" href="${pageContext.request.contextPath}/">Home</a>
         </div>
-
+        <c:if test="${role ne null && role == 'admin'}">
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -23,18 +23,28 @@
                 <li><a href="${pageContext.request.contextPath}/author">Author</a></li>
                 <li><a href="${pageContext.request.contextPath}/bookedexcursion">Booked Excursion</a></li>
             </ul>
-            <c:if test="${role ne null && role == 'admin'}">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a>
+                        <span class="glyphicon glyphicon-user"></span> <c:out value='${adminName}'/>
+                    </a>
+                </li>
+                <li><a href="${pageContext.request.contextPath}/logout"><span
+                        class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+            </ul>
+
+            </c:if>
+            <c:if test="${role eq null}">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a>
-                            <span class="glyphicon glyphicon-user"></span> <c:out value='${adminName}'/>
+                    <li><a href="${pageContext.request.contextPath}/login">
+                            <span class="glyphicon glyphicon-log-in"></span> Login
                         </a>
                     </li>
-                    <li><a href="${pageContext.request.contextPath}/logout"><span
-                            class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                 </ul>
-            </c:if>
-
+            </c:if>>
         </div><!-- /.navbar-collapse -->
+
+
     </div><!-- /.container-fluid -->
 </nav>

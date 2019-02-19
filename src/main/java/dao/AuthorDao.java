@@ -35,15 +35,7 @@ public class AuthorDao implements Dao<Author>, CreateEntityFromDao<Author> {
         Statement statement = connect().createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
         while (resultSet.next()) {
-
-            int id = resultSet.getInt("AuthorID");
-            String firstName = resultSet.getString("FirstName");
-            String lastName = resultSet.getString("LastName");
-
-            Author author = new Author();
-            author.setAuthorId(id);
-            author.setFirstName(firstName);
-            author.setLastName(lastName);
+           author = create(resultSet);
             authorList.add(author);
         }
 
@@ -86,7 +78,7 @@ public class AuthorDao implements Dao<Author>, CreateEntityFromDao<Author> {
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()){
-            create(resultSet);
+            author = create(resultSet);
         }
         preparedStatement.close();
         resultSet.close();
@@ -96,6 +88,7 @@ public class AuthorDao implements Dao<Author>, CreateEntityFromDao<Author> {
     @Override
     public Author create(ResultSet resultSet) throws SQLException {
 
+        Author author = new Author();
         int aId = resultSet.getInt("AuthorID");
         String firstName = resultSet.getString("FirstName");
         String lastName = resultSet.getString("LastName");
