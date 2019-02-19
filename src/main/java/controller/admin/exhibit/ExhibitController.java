@@ -1,4 +1,4 @@
-package controller;
+package controller.admin.exhibit;
 
 import dao.ExhibitDao;
 import dto.ExhibitFullInfDto;

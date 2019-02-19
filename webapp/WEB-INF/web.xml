@@ -17,7 +17,7 @@
     <servlet>
         <display-name>ExcursionController</display-name>
         <servlet-name>ExcursionController</servlet-name>
-        <servlet-class>controller.ExcursionController</servlet-class>
+        <servlet-class>controller.admin.excursion.ExcursionController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ExcursionController</servlet-name>
@@ -27,7 +27,7 @@
     <servlet>
         <display-name>ExhibitController</display-name>
         <servlet-name>ExhibitController</servlet-name>
-        <servlet-class>controller.ExhibitController</servlet-class>
+        <servlet-class>controller.admin.exhibit.ExhibitController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ExhibitController</servlet-name>
@@ -37,7 +37,7 @@
     <servlet>
         <display-name>ArchiveController</display-name>
         <servlet-name>ArchiveController</servlet-name>
-        <servlet-class>controller.ArchiveController</servlet-class>
+        <servlet-class>controller.admin.archive.ArchiveController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ArchiveController</servlet-name>
@@ -47,7 +47,7 @@
     <servlet>
         <display-name>HallController</display-name>
         <servlet-name>HallController</servlet-name>
-        <servlet-class>controller.HallController</servlet-class>
+        <servlet-class>controller.admin.hall.HallController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HallController</servlet-name>
@@ -57,7 +57,7 @@
     <servlet>
         <display-name>AuthorController</display-name>
         <servlet-name>AuthorController</servlet-name>
-        <servlet-class>controller.AuthorController</servlet-class>
+        <servlet-class>controller.admin.author.AuthorController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AuthorController</servlet-name>

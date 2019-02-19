@@ -1,4 +1,4 @@
-package controller;
+package controller.admin.author;
 
 import dao.AuthorDao;
 import entity.Author;

@@ -1,4 +1,4 @@
-package controller.admin;
+package controller.admin.bookedexcursion;
 
 import dao.BookedExcursionDao;
 import entity.BookedExcursion;
