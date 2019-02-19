@@ -1,7 +1,8 @@
 package controller.login;
 
 import dto.LoginDto;
-import service.AdminService;
+import service.EmployeeService;
+import service.InputValidationService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,17 +25,26 @@ public class AdminLoginController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        AdminService adminService = new AdminService();
+        EmployeeService employeeService = new EmployeeService();
+        InputValidationService inputValidationService = new InputValidationService();
         LoginDto loginDto = new LoginDto();
 
-        loginDto.setLogin(req.getParameter("login").trim());
+        String login = req.getParameter("login").trim();
+        String password = req.getParameter("password").trim();
+
+        if (!inputValidationService.isValidInput(login) || !inputValidationService.isValidInput(password)) {
+            req.setAttribute("error", inputValidationService.getMessage());
+            RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/pages/login/login.jsp");
+            dispatcher.forward(req, resp);
+        }
+        loginDto.setLogin(login);
         try {
-            loginDto.setPassword(getHash(req.getParameter("password").trim()));
+            loginDto.setPassword(getHash(req.getParameter(password).trim()));
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        if (adminService.isValid(loginDto)) {
+        if (employeeService.isValid(loginDto)) {
             HttpSession session = req.getSession(true);
             session.setAttribute("adminName", loginDto.getLogin());
             session.setAttribute("role", "admin");
@@ -43,7 +53,7 @@ public class AdminLoginController extends HttpServlet {
             resp.sendRedirect("/hall");
         } else {
             req.setAttribute("error", "Bad Login or Password");
-            RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/pages/admin/login.jsp");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/pages/login/login.jsp");
             dispatcher.forward(req, resp);
         }
     }
