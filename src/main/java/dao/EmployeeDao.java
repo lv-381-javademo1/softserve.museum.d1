@@ -100,14 +100,21 @@ public class EmployeeDao implements Dao<Employee>, CreateEntityFromDao<Employee>
     @Override
     public Employee create(ResultSet resultSet) throws SQLException {
         Employee employee = new Employee();
+        int employeeID = resultSet.getInt("EmployeeID");
         String firstName = resultSet.getString("FirstName");
         String lastName = resultSet.getString("LastName");
         String position = resultSet.getString("Position");
-        int employeeID = resultSet.getInt("EmployeeID");
+        String login = resultSet.getString("Login");
+        String password = resultSet.getString("Password");
+        String role = resultSet.getString("Role");
+
         employee.setFirstName(firstName);
         employee.setLastName(lastName);
         employee.setPosition(position);
         employee.setEmployeeId(employeeID);
+        employee.setLogin(login);
+        employee.setPassword(password);
+        employee.setRole(role);
         return employee;
     }
 
