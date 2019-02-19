@@ -18,7 +18,7 @@ public class AdminLoginController extends HttpServlet {
         boolean invalid = Boolean.parseBoolean(req.getParameter("invalid"));
         req.setAttribute("invalid", invalid);
         req.setAttribute("invalidMessage", "Log in please");
-        RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/pages/admin/login.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("WEB-INF/views/pages/login/login.jsp");
         dispatcher.forward(req, resp);
     }
 
