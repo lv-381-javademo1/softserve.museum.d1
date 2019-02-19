@@ -36,25 +36,6 @@
 </head>
 <body>
 <header id="header" id="home1">
-    <div class="container header-top">
-        <div class="row">
-            <div class="col-6 top-head-left">
-                <ul>
-                    <li><a href="#">Visit Us</a></li>
-                    <li><a href="#">Book Ticket</a></li>
-                </ul>
-            </div>
-            <div class="col-6 top-head-right">
-                <ul>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <hr>
     <div class="container">
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
@@ -64,7 +45,12 @@
                 <ul class="nav-menu">
                     <li class="menu-active"><a href="/">Home</a></li>
                     <li><a href="/book_excursion">Book Ticket</a></li>
-                    <li><a href="/login">Login</a></li>
+                    <c:if test="${role eq null}">
+                        <li><a href="/login">Login</a></li>
+                    </c:if>
+                    <c:if test="${role ne null && role == 'admin'}">
+                        <li><a href="/excursion">Admin panel</a></li>
+                    </c:if>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
