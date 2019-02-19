@@ -1,4 +1,4 @@
-package controller;
+package controller.admin.archive;
 
 import dao.ArchiveDao;
 import entity.Archive;
