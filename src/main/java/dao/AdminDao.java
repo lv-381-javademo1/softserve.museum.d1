@@ -15,7 +15,7 @@ public class AdminDao implements CreateEntityFromDao<Admin> {
 
     public Admin findByLogin(String login) throws SQLException {
 
-        String sql = "SELECT * FROM museume.admin where Login = ?";
+        String sql = "SELECT * FROM admin where Login = ?";
 
         PreparedStatement statement = connect().prepareStatement(sql);
         statement.setString(1, login);
