@@ -6,6 +6,9 @@ import entity.Exhibit;
 import entity.Hall;
 import service.EntityDtoInterface;
 
+/**
+ * @author Andrii Senchakevych
+ */
 public class ExhibitFullInfService implements EntityDtoInterface<Exhibit, ExhibitFullInfDto> {
 
     @Override

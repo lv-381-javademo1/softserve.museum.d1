@@ -1,5 +1,8 @@
 package entity;
 
+/**
+ * @author Andrii Senchakevych
+ */
 public class Author {
 
     private int authorId;
@@ -41,13 +44,17 @@ public class Author {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         Author author = (Author) o;
 
-        if (authorId != author.authorId) return false;
-        if (firstName != null ? !firstName.equals(author.firstName) : author.firstName != null) return false;
+        if (authorId != author.authorId)
+            return false;
+        if (firstName != null ? !firstName.equals(author.firstName) : author.firstName != null)
+            return false;
         return lastName != null ? lastName.equals(author.lastName) : author.lastName == null;
     }
 

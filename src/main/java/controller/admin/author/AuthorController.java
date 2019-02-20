@@ -14,7 +14,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * @author Andrii Senchakevych
+ */
 @WebServlet(
         name = "AuthorController",
         urlPatterns = "/author"

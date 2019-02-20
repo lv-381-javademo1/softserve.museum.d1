@@ -1,9 +1,11 @@
 package entity;
 
+/**
+ * @author Andrii Senchakevych
+ */
 public class Hall {
 
     private int id;
-
     private String hallName;
 
     public Hall(int id, String hallName) {
@@ -32,15 +34,20 @@ public class Hall {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o)
+
+        if (this == o) {
             return true;
-        if (o == null || getClass() != o.getClass())
+        }
+
+        if (o == null || getClass() != o.getClass()) {
             return false;
+        }
 
         Hall hall = (Hall) o;
 
-        if (id != hall.id)
+        if (id != hall.id) {
             return false;
+        }
         return hallName.equals(hall.hallName);
     }
 

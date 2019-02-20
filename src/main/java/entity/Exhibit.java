@@ -1,5 +1,8 @@
 package entity;
 
+/**
+ * @author Andrii Senchakevych
+ */
 public class Exhibit {
 
     private int exhibitId;
@@ -81,17 +84,25 @@ public class Exhibit {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         Exhibit exhibit = (Exhibit) o;
 
-        if (exhibitId != exhibit.exhibitId) return false;
-        if (employeeId != null ? !employeeId.equals(exhibit.employeeId) : exhibit.employeeId != null) return false;
-        if (authorId != null ? !authorId.equals(exhibit.authorId) : exhibit.authorId != null) return false;
-        if (hall_Id != null ? !hall_Id.equals(exhibit.hall_Id) : exhibit.hall_Id != null) return false;
-        if (name != null ? !name.equals(exhibit.name) : exhibit.name != null) return false;
-        if (material != null ? !material.equals(exhibit.material) : exhibit.material != null) return false;
+        if (exhibitId != exhibit.exhibitId)
+            return false;
+        if (employeeId != null ? !employeeId.equals(exhibit.employeeId) : exhibit.employeeId != null)
+            return false;
+        if (authorId != null ? !authorId.equals(exhibit.authorId) : exhibit.authorId != null)
+            return false;
+        if (hall_Id != null ? !hall_Id.equals(exhibit.hall_Id) : exhibit.hall_Id != null)
+            return false;
+        if (name != null ? !name.equals(exhibit.name) : exhibit.name != null)
+            return false;
+        if (material != null ? !material.equals(exhibit.material) : exhibit.material != null)
+            return false;
         return technique != null ? technique.equals(exhibit.technique) : exhibit.technique == null;
     }
 

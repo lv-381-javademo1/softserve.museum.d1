@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * @author Andrii Senchakevych
+ */
 @WebServlet(
         name = "HallController",
         urlPatterns = "/hall"

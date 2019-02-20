@@ -12,6 +12,9 @@ import java.util.List;
 
 import static util.DbConnectionUtil.connect;
 
+/**
+ * @author Andrii Senchakevych
+ */
 public class EmployeeDao implements Dao<Employee>, CreateEntityFromDao<Employee> {
     Employee employee;
 
@@ -75,7 +78,7 @@ public class EmployeeDao implements Dao<Employee>, CreateEntityFromDao<Employee>
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
         if (resultSet.next()) {
-          employee =  create(resultSet);
+            employee = create(resultSet);
         }
         resultSet.close();
         statement.close();

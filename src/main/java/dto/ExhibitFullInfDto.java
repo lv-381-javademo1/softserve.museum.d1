@@ -1,11 +1,14 @@
 package dto;
 
+/**
+ * @author Andrii Senchakevych
+ */
 public class ExhibitFullInfDto {
 
-    private String exhibitID ;
-    private String exhibitName ;
-    private String material ;
-    private String technique ;
+    private String exhibitID;
+    private String exhibitName;
+    private String material;
+    private String technique;
     private String hall;
     private String authorFirstname;
     private String authorLastname;

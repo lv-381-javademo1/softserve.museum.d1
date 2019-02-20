@@ -2,6 +2,9 @@ package entity;
 
 import java.util.Objects;
 
+/**
+ * @author Andrii Senchakevych
+ */
 public class Employee {
 
     private int employeeId;

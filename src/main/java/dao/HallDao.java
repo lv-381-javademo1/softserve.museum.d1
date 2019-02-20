@@ -9,6 +9,9 @@ import java.util.List;
 
 import static util.DbConnectionUtil.connect;
 
+/**
+ * @author Andrii Senchakevych
+ */
 public class HallDao implements Dao<Hall>, CreateEntityFromDao<Hall> {
 
     Hall hall;

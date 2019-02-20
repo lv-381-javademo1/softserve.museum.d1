@@ -13,6 +13,9 @@ import java.util.List;
 
 import static util.DbConnectionUtil.connect;
 
+/**
+ * @author Andrii Senchakevych
+ */
 public class ExhibitDao implements Dao<Exhibit>, CreateEntityFromDao<Exhibit> {
 
     Exhibit exhibit;
@@ -131,11 +134,11 @@ public class ExhibitDao implements Dao<Exhibit>, CreateEntityFromDao<Exhibit> {
                 + "FROM exhibit "
                 + "LEFT JOIN hall ON exhibit.Hall_ID = hall.Hall_ID "
                 + "LEFT JOIN author ON exhibit.AuthorID = author.AuthorID ";
-                //+ "WHERE exhibit.Name = ?";
+        //+ "WHERE exhibit.Name = ?";
         Statement statement = connect().createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
 
-        while (resultSet.next()){
+        while (resultSet.next()) {
 
             String exhibitID = String.valueOf(resultSet.getInt("ExhibitID"));
             String exhibitName = resultSet.getString("Exhibit Name");

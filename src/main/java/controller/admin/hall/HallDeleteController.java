@@ -11,13 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-
+/**
+ * @author Andrii Senchakevych
+ */
 @WebServlet(
         name = "HallDeleteController",
         urlPatterns = "/halldelete"
 )
 public class HallDeleteController extends HttpServlet {
     private HallDao hallDao = new HallDao();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
@@ -27,9 +30,9 @@ public class HallDeleteController extends HttpServlet {
             Hall hall = hallDao.findOne(id);
 
 
-        System.out.println(hall.toString());
-        hallDao.delete(hall);
-        response.sendRedirect("/hall");
+            System.out.println(hall.toString());
+            hallDao.delete(hall);
+            response.sendRedirect("/hall");
         } catch (SQLException e) {
             e.printStackTrace();
         }

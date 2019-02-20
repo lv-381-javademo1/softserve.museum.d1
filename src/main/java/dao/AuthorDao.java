@@ -12,6 +12,9 @@ import java.util.List;
 
 import static util.DbConnectionUtil.connect;
 
+/**
+ * @author Andrii Senchakevych
+ */
 public class AuthorDao implements Dao<Author>, CreateEntityFromDao<Author> {
     Author author;
 
@@ -35,7 +38,7 @@ public class AuthorDao implements Dao<Author>, CreateEntityFromDao<Author> {
         Statement statement = connect().createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
         while (resultSet.next()) {
-           author = create(resultSet);
+            author = create(resultSet);
             authorList.add(author);
         }
 
@@ -50,7 +53,7 @@ public class AuthorDao implements Dao<Author>, CreateEntityFromDao<Author> {
         String sql = "DELETE FROM author WHERE AuthorID = ?";
 
         PreparedStatement preparedStatement = connect().prepareStatement(sql);
-        preparedStatement.setInt(1,author.getAuthorId());
+        preparedStatement.setInt(1, author.getAuthorId());
         boolean rowDeleted = preparedStatement.executeUpdate() > 0;
         preparedStatement.close();
         return rowDeleted;
@@ -77,7 +80,7 @@ public class AuthorDao implements Dao<Author>, CreateEntityFromDao<Author> {
         PreparedStatement preparedStatement = connect().prepareStatement(sql);
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
-        if (resultSet.next()){
+        if (resultSet.next()) {
             author = create(resultSet);
         }
         preparedStatement.close();
