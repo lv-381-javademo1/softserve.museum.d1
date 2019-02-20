@@ -35,7 +35,6 @@ public class AdminLoginController extends HttpServlet {
         LoginDto loginDto = new LoginDto();
         String login = req.getParameter("login").trim();
         String password = req.getParameter("password").trim();
-        System.out.println(password);
 
         if (!inputValidationService.isValidInput(login) || !inputValidationService.isValidInput(password)) {
             req.setAttribute("error", inputValidationService.getMessage());
@@ -45,7 +44,6 @@ public class AdminLoginController extends HttpServlet {
         try {
             loginDto.setLogin(login);
             loginDto.setPassword(getHash(password));
-            System.out.println("esd" + loginDto.getPassword());
         } catch (Exception e) {
             logger.error("exception is - ", e);
         }
