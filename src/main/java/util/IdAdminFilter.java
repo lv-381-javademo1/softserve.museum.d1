@@ -24,27 +24,29 @@ import java.io.IOException;
         description = "Filter all admin URLs"
 )
 public class IdAdminFilter implements Filter {
-    public void destroy() {
+
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+
     }
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
 
-        System.out.println("In IdAdminFilter");
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
         HttpSession session = request.getSession(false);
 
         if (session == null || session.getAttribute("role") != "admin") {
-            response.sendRedirect(request.getContextPath() + "/login?invalid=true"); // No logged-in user found, so redirect to login page.
+            response.sendRedirect(request.getContextPath() + "/login?invalid=true");
         } else {
             chain.doFilter(req, resp); // Logged-in user found, so just continue request.
         }
 
     }
 
-    public void init(FilterConfig config) throws ServletException {
+    @Override
+    public void destroy() {
 
     }
-
 }
