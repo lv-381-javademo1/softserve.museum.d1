@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 
 public class Md5Hash {
     public static String getHash(String str) throws Exception {
+
         MessageDigest md = MessageDigest.getInstance("MD5");
         md.update(str.getBytes());
 
