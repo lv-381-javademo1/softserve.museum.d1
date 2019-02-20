@@ -1,6 +1,8 @@
 package controller.login;
 
 import dto.LoginDto;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import service.EmployeeService;
 import service.InputValidationService;
 
@@ -14,6 +16,8 @@ import static util.Md5Hash.getHash;
 
 @WebServlet("/login")
 public class AdminLoginController extends HttpServlet {
+    Logger logger = LogManager.getLogger(AdminLoginController.class);
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         boolean invalid = Boolean.parseBoolean(req.getParameter("invalid"));
@@ -42,7 +46,7 @@ public class AdminLoginController extends HttpServlet {
             loginDto.setPassword(getHash(password));
             System.out.println("esd" + loginDto.getPassword());
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("exception is - ", e);
         }
 
         if (employeeService.isValid(loginDto)) {
@@ -51,6 +55,7 @@ public class AdminLoginController extends HttpServlet {
             session.setAttribute("role", "admin");
             Cookie cookie = new Cookie("id_session", session.getId());
             resp.addCookie(cookie);
+
             resp.sendRedirect("/hall");
         } else {
             req.setAttribute("error", "Bad Login or Password");
