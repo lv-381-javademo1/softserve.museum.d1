@@ -9,6 +9,9 @@ import java.util.List;
 
 import static util.DbConnectionUtil.connect;
 
+/**
+ * @author Ostap Vdovychyn
+ */
 public class ExcursionDao implements Dao<Excursion>, CreateEntityFromDao<Excursion> {
     Excursion excursion;
 

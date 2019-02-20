@@ -14,6 +14,9 @@ import java.util.List;
 
 import static util.DbConnectionUtil.connect;
 
+/**
+ * @author Ostap Vdovychyn
+ */
 public class BookedExcursionDao implements Dao<BookedExcursion>, CreateEntityFromDao<BookedExcursion> {
 
     @Override
@@ -39,7 +42,7 @@ public class BookedExcursionDao implements Dao<BookedExcursion>, CreateEntityFro
         Statement statement = connect().createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
 
-        while (resultSet.next()){
+        while (resultSet.next()) {
             bookedExcursionList.add(create(resultSet));
         }
 

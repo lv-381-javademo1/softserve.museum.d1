@@ -4,7 +4,9 @@ import dao.EmployeeDao;
 import dto.LoginDto;
 import entity.Employee;
 
-
+/**
+ * @author Ostap Vdovychyn
+ */
 public class EmployeeService {
 
     private EmployeeDao employeeDao = new EmployeeDao();

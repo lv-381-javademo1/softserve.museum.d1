@@ -11,6 +11,9 @@ import java.util.List;
 
 import static util.DbConnectionUtil.connect;
 
+/**
+ * @author Ostap Vdovychyn
+ */
 public class ArchiveDao implements Dao<Archive>, CreateEntityFromDao<Archive> {
     EmployeeDao employeeDao = new EmployeeDao();
     ExcursionDao excursionDao = new ExcursionDao();
@@ -20,10 +23,10 @@ public class ArchiveDao implements Dao<Archive>, CreateEntityFromDao<Archive> {
     public boolean add(Archive archive) throws SQLException {
         String sql = "INSERT INTO archive(EmployeeID, ExcursionID, StartTime, EndTime) VALUES (?, ?, ?, ?)";
         PreparedStatement preparedStatement = connect().prepareStatement(sql);
-        preparedStatement.setInt(1,archive.getEmployee().getEmployeeId());
-        preparedStatement.setInt(2,archive.getExcursion().getExcursionId());
+        preparedStatement.setInt(1, archive.getEmployee().getEmployeeId());
+        preparedStatement.setInt(2, archive.getExcursion().getExcursionId());
         preparedStatement.setString(3, String.valueOf(archive.getStartTime()));
-        preparedStatement.setString(4,String.valueOf(archive.getEndTime()));
+        preparedStatement.setString(4, String.valueOf(archive.getEndTime()));
         boolean rowInserted = preparedStatement.executeUpdate() > 0;
         preparedStatement.close();
         return rowInserted;
@@ -69,7 +72,7 @@ public class ArchiveDao implements Dao<Archive>, CreateEntityFromDao<Archive> {
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
-          archive = create(resultSet);
+            archive = create(resultSet);
         }
         preparedStatement.close();
         resultSet.close();

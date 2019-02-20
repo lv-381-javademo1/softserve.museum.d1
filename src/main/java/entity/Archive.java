@@ -3,6 +3,9 @@ package entity;
 import java.sql.Timestamp;
 import java.util.Objects;
 
+/**
+ * @author Ostap Vdovychyn
+ */
 public class Archive {
 
     private int archiveId;

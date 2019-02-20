@@ -1,5 +1,8 @@
 package entity;
 
+/**
+ * @author Ostap Vdovychyn
+ */
 public class Excursion {
 
     private int excursionId;
@@ -61,15 +64,21 @@ public class Excursion {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         Excursion excursion = (Excursion) o;
 
-        if (excursionId != excursion.excursionId) return false;
-        if (price != excursion.price) return false;
-        if (name != null ? !name.equals(excursion.name) : excursion.name != null) return false;
-        if (startTime != null ? !startTime.equals(excursion.startTime) : excursion.startTime != null) return false;
+        if (excursionId != excursion.excursionId)
+            return false;
+        if (price != excursion.price)
+            return false;
+        if (name != null ? !name.equals(excursion.name) : excursion.name != null)
+            return false;
+        if (startTime != null ? !startTime.equals(excursion.startTime) : excursion.startTime != null)
+            return false;
         return duration != null ? duration.equals(excursion.duration) : excursion.duration == null;
     }
 

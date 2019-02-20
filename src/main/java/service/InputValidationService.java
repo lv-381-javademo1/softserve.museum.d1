@@ -1,9 +1,11 @@
 package service;
 
-import java.util.InputMismatchException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author Ostap Vdovychyn
+ */
 public class InputValidationService {
 
     private static final String EMAIL_REGEX = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
