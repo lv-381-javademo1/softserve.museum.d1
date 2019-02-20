@@ -15,6 +15,9 @@ import java.io.IOException;
 
 import static util.Md5Hash.getHash;
 
+/**
+ * @author Ostap Vdovychyn
+ */
 @WebServlet("/login")
 public class AdminLoginController extends HttpServlet {
     Logger logger = LogManager.getLogger(AdminLoginController.class);
@@ -54,7 +57,6 @@ public class AdminLoginController extends HttpServlet {
             session.setAttribute("role", "admin");
             Cookie cookie = new Cookie("id_session", session.getId());
             resp.addCookie(cookie);
-
             resp.sendRedirect("/hall");
         } else {
             req.setAttribute("error", "Bad Login or Password");

@@ -3,7 +3,9 @@ package dao;
 import java.sql.SQLException;
 import java.util.List;
 
-
+/**
+ * @author Ostap Vdovychyn
+ */
 public interface Dao<T> {
 
     boolean add(T t) throws SQLException;

@@ -2,6 +2,9 @@ package util;
 
 import java.security.MessageDigest;
 
+/**
+ * @author Ostap Vdovychyn
+ */
 public class Md5Hash {
     public static String getHash(String str) throws Exception {
 

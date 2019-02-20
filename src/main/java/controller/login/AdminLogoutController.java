@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * @author Ostap Vdovychyn
+ */
 @WebServlet("/logout")
 public class AdminLogoutController extends HttpServlet {
     @Override
@@ -20,10 +23,5 @@ public class AdminLogoutController extends HttpServlet {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/");
         dispatcher.forward(req, resp);
 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
     }
 }

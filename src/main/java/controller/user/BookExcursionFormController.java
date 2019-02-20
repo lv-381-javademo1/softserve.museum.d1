@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * @author Ostap Vdovychyn
+ */
 @WebServlet("/book_excursion_form")
 public class BookExcursionFormController extends HttpServlet {
     private int id;

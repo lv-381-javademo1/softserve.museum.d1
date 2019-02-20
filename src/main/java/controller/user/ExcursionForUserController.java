@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * @author Ostap Vdovychyn
+ */
 @WebServlet("/book_excursion")
 public class ExcursionForUserController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

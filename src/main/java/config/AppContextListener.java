@@ -8,6 +8,9 @@ import java.sql.SQLException;
 import static util.DbConnectionUtil.connect;
 import static util.DbConnectionUtil.disconnect;
 
+/**
+ * @author Ostap Vdovychyn
+ */
 public class AppContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {

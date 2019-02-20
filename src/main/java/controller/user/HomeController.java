@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * @author Ostap Vdovychyn
+ */
 @WebServlet("/")
 public class HomeController extends HttpServlet {
 
