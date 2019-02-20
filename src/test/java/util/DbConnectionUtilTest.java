@@ -11,24 +11,18 @@ import static util.DbConnectionUtil.*;
 public class DbConnectionUtilTest {
 
     @Test
-    public void connectToDb() {
+    public void connectToDb() throws SQLException {
 
-        try {
-            Connection connection = connect();
-            assertEquals(connection != null, true );
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        Connection connection = connect();
+        assertEquals(connection != null, true);
+
     }
 
     @Test
-    public void disconnectFromDb() {
+    public void disconnectFromDb() throws SQLException {
 
-        try {
-            disconnect();
-            assertEquals(conn, null);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        disconnect();
+        assertEquals(conn, null);
+
     }
 }
