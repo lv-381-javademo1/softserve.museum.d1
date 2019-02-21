@@ -45,7 +45,12 @@
                 <ul class="nav-menu">
                     <li class="menu-active"><a href="/">Home</a></li>
                     <li><a href="/book_excursion">Book Ticket</a></li>
-                    <li><a href="/login">Login</a></li>
+                    <c:if test="${role eq null}">
+                        <li><a href="/login">Login</a></li>
+                    </c:if>
+                    <c:if test="${role ne null && role == 'admin'}">
+                        <li><a href="/excursion">Admin panel</a></li>
+                    </c:if>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
